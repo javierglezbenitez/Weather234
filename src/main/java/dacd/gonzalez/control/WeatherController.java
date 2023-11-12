@@ -5,8 +5,9 @@ import dacd.gonzalez.model.Location;
 import java.time.Instant;
 import java.util.ArrayList;
 
-public class WeatherController {
+public class WeatherController{
     public static void main(String[] args) {
+
         Location lanzarote = new Location("Lanzarote", 28.96302, -13.54769);
         Location fuerteventura = new Location("Fuerteventura", 28.50038, -13.86272);
         Location GranCanaria = new Location("Gran Canaria", 28.09973, -15.41343);
@@ -26,10 +27,10 @@ public class WeatherController {
         islands.add(palma);
         islands.add(graciosa);
 
+        WeatherProvider weatherProvider = new MapWeatherProvider();
 
         for (int i = 0; i < 8; i++) {
-            WeatherProvider.WeatherGet(islands.get(i));
-
+            weatherProvider.WeatherGet(islands.get(i));
         }
     }
 }
