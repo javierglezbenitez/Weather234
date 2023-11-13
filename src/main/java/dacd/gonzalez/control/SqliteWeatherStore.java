@@ -8,10 +8,7 @@ import java.time.Instant;
 
 
 public class SqliteWeatherStore implements WeatherStore {
-    @Override
-    public void save(Weather weather) {
 
-    }
 
     @Override
     public void load(Location location, Instant instant) {
@@ -29,7 +26,7 @@ public class SqliteWeatherStore implements WeatherStore {
                         "instant TEXT," +
                         "pop REAL" +
                         ")";
-                System.out.println("Tabla creada");
+
                 Statement statement = connection.createStatement();
                 statement.executeUpdate(createTableSQL);
 
@@ -50,13 +47,11 @@ public class SqliteWeatherStore implements WeatherStore {
                 e.printStackTrace();
                 throw new RuntimeException(e);
 
-            }catch (NullPointerException exception){
-                exception.printStackTrace();
+                }
+            }else{
+                    System.out.println("No weather data found for ");
+                }
 
             }
-        } else {
-            System.out.println("No weather data found for ");
-        }
 
-    }
-}
+        }
