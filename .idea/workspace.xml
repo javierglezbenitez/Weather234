@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="SqliteWeatherStore done corrected">
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Interface WeatherStore">
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699886383675</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Interface WeatherStore">
+      <option name="closed" value="true" />
+      <created>1699894165534</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699894165534</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,7 +107,8 @@
     <MESSAGE value="Model done" />
     <MESSAGE value="Method GetWeather" />
     <MESSAGE value="WeatherController done" />
-    <MESSAGE value="SqliteWeatherStore done corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="SqliteWeatherStore done corrected" />
+    <MESSAGE value="Method load done" />
+    <MESSAGE value="Interface WeatherStore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interface WeatherStore" />
   </component>
 </project>

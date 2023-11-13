@@ -47,11 +47,25 @@ public class SqliteWeatherStore implements WeatherStore {
                 e.printStackTrace();
                 throw new RuntimeException(e);
 
-                }
-            }else{
-                    System.out.println("No weather data found for ");
-                }
-
             }
-
+        } else {
+            System.out.println("No weather data found for ");
         }
+    }
+
+    //Implemento este método para verificar cuando un registro se encuentra repetido en la base de datos y cuando no
+        private static boolean doesWeatherExist(Connection connection, String locationName, String instant) throws SQLException {
+            String checkSQL = "SELECT COUNT(*) FROM weather WHERE name = ? AND instant = ?";
+            PreparedStatement checkStatement = connection.prepareStatement(checkSQL);
+            checkStatement.setString(1, locationName);
+            checkStatement.setString(2, instant);
+            ResultSet resultSet = checkStatement.executeQuery();
+
+            // Con esta condicion verificamos si el registro existe o no
+            return resultSet.getInt(1) > 0;
+        }
+
+
+
+}
+
