@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Method GetWeather">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" afterDir="false" />
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="WeatherController done">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherProvider.java" afterDir="false" />
     </list>
@@ -19,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -68,7 +71,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699548245343</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="WeatherController done">
+      <option name="closed" value="true" />
+      <created>1699788505277</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699788505277</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -85,6 +96,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Model done" />
     <MESSAGE value="Method GetWeather" />
-    <option name="LAST_COMMIT_MESSAGE" value="Method GetWeather" />
+    <MESSAGE value="WeatherController done" />
+    <option name="LAST_COMMIT_MESSAGE" value="WeatherController done" />
   </component>
 </project>

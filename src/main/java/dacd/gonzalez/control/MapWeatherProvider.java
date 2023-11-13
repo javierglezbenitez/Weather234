@@ -9,14 +9,12 @@ import dacd.gonzalez.model.Weather;
 import org.jsoup.Jsoup;
 
 import java.time.Instant;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
+
 
 public class MapWeatherProvider implements WeatherProvider {
 
     @Override
-    public  Weather WeatherGet(Location location) {
+    public  Weather WeatherGet(Location location, Instant instant) {
 
         Weather weatherObject = null;
         try {
@@ -29,16 +27,10 @@ public class MapWeatherProvider implements WeatherProvider {
             JsonObject weathers = gson.fromJson(jsonString, JsonObject.class);
             JsonArray lists = weathers.getAsJsonObject().getAsJsonArray("list");
 
-            ArrayList<Weather> weatherList = new ArrayList<>();
 
             for (JsonElement list : lists) {
                 JsonObject weather = list.getAsJsonObject();
 
-                int dt = weather.get("dt").getAsInt();
-                long unixTimestamp = dt;
-                Instant weatherInstant = Instant.ofEpochSecond(unixTimestamp);
-
-                if (weatherInstant.atZone(ZoneId.of("UTC")).toLocalTime().equals(LocalTime.of(12, 0))) {
                     JsonObject main = weather.get("main").getAsJsonObject();
                     JsonObject clouds = weather.get("clouds").getAsJsonObject();
                     JsonObject wind = weather.get("wind").getAsJsonObject();
@@ -48,22 +40,19 @@ public class MapWeatherProvider implements WeatherProvider {
                     int all = clouds.get("all").getAsInt();
                     double speed = wind.get("speed").getAsDouble();
                     Double pop = weather.get("pop").getAsDouble();
+                    int dt = weather.get("dt").getAsInt();
 
+                    long unixTimestamp = dt;
+                    Instant weatherInstant = Instant.ofEpochSecond(unixTimestamp);
 
-                     weatherObject = new Weather(temp, humidity, all, speed, pop, weatherInstant);
-                    weatherList.add(weatherObject);
+                if (weatherInstant.equals(instant)) {
+
+                    weatherObject = new Weather(temp, humidity, all, speed, pop, weatherInstant);
+                    break;
+                }
 
                 }
-            }
 
-            for (Weather weatherIter : weatherList) {
-                System.out.println("Temp:" + weatherIter.getTemp());
-                System.out.println("clouds:" + weatherIter.getAll());
-                System.out.println("wind:" + weatherIter.getSpeed());
-                System.out.println("humidity:" + weatherIter.getHumidity());
-                System.out.println("pop:" + weatherIter.getPop());
-                System.out.println("dt:" + weatherIter.getDt() + "\n");
-            }
         } catch (Exception e) {
             throw new RuntimeException();
 

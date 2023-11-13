@@ -14,7 +14,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 
 public interface WeatherProvider {
-     Weather WeatherGet(Location location);
+     Weather WeatherGet(Location location, Instant instant);
 
     }
 
