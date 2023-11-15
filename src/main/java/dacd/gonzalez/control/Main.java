@@ -6,17 +6,30 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import dacd.gonzalez.model.Location;
 import dacd.gonzalez.model.Weather;
-import org.jsoup.Jsoup;
 
-import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+
 
 public class Main {
     public static void main(String[] args) {
-        WeatherController weatherController = new WeatherController(new MapWeatherProvider());
-        weatherController.execute();
 
+
+            // Crea un ScheduledExecutorService con un hilo para ejecutar tareas programadas
+            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+            // Programa la tarea para ejecutarse cada seis horas
+            scheduler.scheduleAtFixedRate(() -> {
+                execute();
+            }, 0, 6, TimeUnit.HOURS);
+        }
+        private static void execute() {
+            // Aquí colocas la lógica que deseas ejecutar cada seis horas
+            System.out.println("Ejecutando la tarea cada seis horas");
+
+        }
     }
-}

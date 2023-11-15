@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Interface WeatherStore">
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Method doesWeatherExist done">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,22 +30,38 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2XuUuf9kwQNpCPV2CiDxl4Ml31r" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "onboarding.tips.debug.path": "C:/Users/cgsos/Weather/src/main/java/dacd/gonzalez/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/cgsos/Weather/src/main/java/dacd/gonzalez/Main.java&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.control.Main" />
+      <module name="Weather" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;&amp;appid=51cb3b621914382d96a450c0f3451582&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dacd.gonzalez.control.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -89,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699894165534</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Method doesWeatherExist done">
+      <option name="closed" value="true" />
+      <created>1699895745200</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699895745200</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +139,7 @@
     <MESSAGE value="WeatherController done" />
     <MESSAGE value="Method load done" />
     <MESSAGE value="Interface WeatherStore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interface WeatherStore" />
+    <MESSAGE value="Method doesWeatherExist done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Method doesWeatherExist done" />
   </component>
 </project>

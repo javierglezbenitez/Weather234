@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherController{
+
     public WeatherProvider weatherProvider;
     public WeatherController(WeatherProvider weatherProvider){
         this.weatherProvider = weatherProvider;
@@ -25,20 +26,28 @@ public class WeatherController{
         Location palma = new Location("La Palma", 28.68351, -17.76421);
         Location graciosa = new Location("La Graciosa", 29.23147, -13.50341);
 
-        List<Location> islands = List.of(lanzarote, fuerteventura, GranCanaria, tenerife, hierro, gomera, palma, graciosa);
+        ArrayList<Location> islands = new ArrayList<>();
+        islands.add(lanzarote);
+        islands.add(fuerteventura);
+        islands.add(GranCanaria);
+        islands.add(tenerife);
+        islands.add(hierro);
+        islands.add(gomera);
+        islands.add(palma);
+        islands.add(graciosa);
 
 
 
-        ArrayList<Weather> weatherArrayList = new ArrayList<>();
+        ArrayList<Weather> weathers = new ArrayList<>();
         ArrayList<Instant> instants = new ArrayList<>();
 
         createInstant(instants);
-        getWeatherCall(instants, islands, weatherArrayList);
+        getWeatherCall(instants, islands, weathers);
         loadCall(instants, islands);
 
     }
     public static ArrayList<Instant> createInstant(ArrayList<Instant> instants) {
-        for (int i = 0; i <5; i++) {
+        for (int i = 0; i < 5; i++) {
             LocalDate hoy = LocalDate.now();
             LocalTime hour = LocalTime.of(12, 0);
             LocalDateTime todayHour = LocalDateTime.of(hoy, hour);
@@ -48,11 +57,13 @@ public class WeatherController{
         }
         return instants;
     }
-    public static ArrayList<Weather> getWeatherCall(ArrayList<Instant> instants, List<Location> islands, ArrayList<Weather> weathers) {
+
+    public static ArrayList<Weather> getWeatherCall(ArrayList<Instant> instantList, List<Location> locationList,
+                                                    ArrayList<Weather> weatherArrayList) {
         WeatherProvider weatherProvider = new MapWeatherProvider();
 
-        for (Location iteredLocation : islands) {
-            for (Instant iteredInstant : instants) {
+        for (Location iteredLocation : locationList) {
+            for (Instant iteredInstant : instantList) {
                 Weather weather = weatherProvider.WeatherGet(iteredLocation, iteredInstant);
 
                 if (weather != null) {
@@ -62,25 +73,24 @@ public class WeatherController{
                 } else {
                     System.out.println("No weather data found for " + iteredLocation.getName() + " at " + iteredInstant);
                 }
-                weathers.add(weather);
+                weatherArrayList.add(weather);
             }
         }
-        return weathers;
+        return weatherArrayList;
     }
 
-    public static void loadCall(ArrayList<Instant> instants, List<Location> islands){
+    public static void loadCall(ArrayList<Instant> instantList, List<Location> locationList){
         WeatherStore weatherStore = new SqliteWeatherStore();
-        for (Location iteredLocation : islands) {
-            for (Instant iteredInstant: instants) {
+        for (Location iteredLocation : locationList) {
+            for (Instant iteredInstant : instantList) {
                 weatherStore.load(iteredLocation, iteredInstant);
-
             }
         }
     }
+
     public static void main(String[] args) {
         WeatherController weatherController = new WeatherController(new MapWeatherProvider());
         weatherController.execute();
-
-        }
+    }
     }
 

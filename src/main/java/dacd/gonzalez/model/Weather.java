@@ -27,7 +27,7 @@ public class Weather {
         return humidity;
     }
 
-    public int getAll() {
+    public int getCloud() {
         return all;
     }
 
@@ -39,7 +39,7 @@ public class Weather {
         return pop;
     }
 
-    public Instant getDt() {
+    public Instant getInstant() {
         return dt;
     }
 }
