@@ -7,13 +7,20 @@ import com.google.gson.JsonObject;
 import dacd.gonzalez.model.Location;
 import dacd.gonzalez.model.Weather;
 import org.jsoup.Jsoup;
-
 import java.time.Instant;
-import java.time.LocalTime;
-import java.time.ZoneId;
-
 
 public class MapWeatherProvider implements WeatherProvider {
+    private static String API_KEY;
+
+
+    public  MapWeatherProvider(String API_KEY) {
+        this.API_KEY = API_KEY;
+
+    }
+
+    public static String getApiKey() {
+        return API_KEY;
+    }
 
 
     @Override
@@ -22,7 +29,7 @@ public class MapWeatherProvider implements WeatherProvider {
         Weather weatherObject = null;
         try {
 
-            String url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + location.getLat() + "&lon=" + location.getLon() + "&appid=51cb3b621914382d96a450c0f3451582";
+            String url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + location.getLat() + "&lon=" + location.getLon() +"&appid=" +  API_KEY;
             String jsonString = Jsoup.connect(url).ignoreContentType(true).execute().body();
 
 

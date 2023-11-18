@@ -15,7 +15,7 @@ import java.util.List;
 
         @Override
         public void save(Location location, Instant instant) {
-            WeatherProvider weatherProvider = new MapWeatherProvider();
+            WeatherProvider weatherProvider = new MapWeatherProvider(MapWeatherProvider.getApiKey());
             Weather weather = weatherProvider.WeatherGet(location, instant);
 
             if (weather != null) {
@@ -24,12 +24,12 @@ import java.util.List;
 
                     String tableName =  location.getName().toLowerCase().replace(" ", "_");
                     String createTableSQL = "CREATE TABLE IF NOT EXISTS " + tableName + " (" +
-                            "clouds INTEGER," +
-                            "wind REAL," +
                             "temperature REAL," +
                             "humidity INTEGER," +
-                            "instant TEXT," +
-                            "pop REAL" +
+                            "clouds INTEGER," +
+                            "wind REAL," +
+                            "pop REAL," +
+                            "instant TEXT" +
                             ")";
 
                     System.out.println("Created table for " + location.getName());
@@ -37,29 +37,29 @@ import java.util.List;
                     statement.executeUpdate(createTableSQL);
 
                     if (doesWeatherRecordExist(connection, tableName, instant.toString())) {
-                        String updateWeatherSQL = "UPDATE " + tableName + " SET clouds=?, wind=?, temperature=?, humidity=?, pop=? " +
+                        String updateWeatherSQL = "UPDATE " + tableName + " SET temperature=?, humidity=?, clouds=?, wind=?, pop=? " +
                                 "WHERE instant=?";
                         PreparedStatement updateStatement = connection.prepareStatement(updateWeatherSQL);
 
-                        updateStatement.setInt(1, weather.getCloud());
-                        updateStatement.setDouble(2, weather.getSpeed());
-                        updateStatement.setDouble(3, weather.getTemp());
-                        updateStatement.setInt(4, weather.getHumidity());
+                        updateStatement.setDouble(1, weather.getTemp());
+                        updateStatement.setInt(2, weather.getHumidity());
+                        updateStatement.setInt(3, weather.getCloud());
+                        updateStatement.setDouble(4, weather.getSpeed());
                         updateStatement.setDouble(5, weather.getPop());
                         updateStatement.setString(6, instant.toString());
 
                         updateStatement.executeUpdate();
                     } else {
-                        String insertWeatherSQL = "INSERT INTO " + tableName + " (clouds, wind, temperature, humidity, instant, pop)" +
+                        String insertWeatherSQL = "INSERT INTO " + tableName + " (temperature, humidity, clouds, wind, pop, instant)" +
                                 " VALUES (?, ?, ?, ?, ?, ?)";
                         PreparedStatement insertStatement = connection.prepareStatement(insertWeatherSQL);
 
-                        insertStatement.setInt(1, weather.getCloud());
-                        insertStatement.setDouble(2, weather.getSpeed());
-                        insertStatement.setDouble(3, weather.getTemp());
-                        insertStatement.setInt(4, weather.getHumidity());
-                        insertStatement.setString(5, instant.toString());
-                        insertStatement.setDouble(6, weather.getPop());
+                        insertStatement.setDouble(1, weather.getTemp());
+                        insertStatement.setInt(2, weather.getHumidity());
+                        insertStatement.setInt(3, weather.getCloud());
+                        insertStatement.setDouble(4, weather.getSpeed());
+                        insertStatement.setDouble(5, weather.getPop());
+                        insertStatement.setString(6, instant.toString());
 
                         insertStatement.executeUpdate();
                     }

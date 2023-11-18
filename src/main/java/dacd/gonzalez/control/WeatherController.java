@@ -52,18 +52,17 @@ public class WeatherController{
 
     public static ArrayList<Weather> getWeatherCall(ArrayList<Instant> instants, List<Location> islands,
                                                     ArrayList<Weather> weathers) {
-        WeatherProvider weatherProvider = new MapWeatherProvider();
+        WeatherProvider weatherProvider = new MapWeatherProvider(MapWeatherProvider.getApiKey());
 
         for (Location iteredLocation : islands) {
             for (Instant iteredInstant : instants) {
                 Weather weather = weatherProvider.WeatherGet(iteredLocation, iteredInstant);
 
                 if (weather != null) {
-                    System.out.println("Weather found for " + iteredLocation.getName() + " at " + iteredInstant + ":");
-                    System.out.println(weather);
+                    System.out.println("Climate of " + iteredLocation.getName() + " at " + iteredInstant );
                     System.out.println("\n");
                 } else {
-                    System.out.println("Weather not found for " + iteredLocation.getName() + " at " + iteredInstant);
+                    System.out.println("Is not Climate for" + iteredLocation.getName() + " at " + iteredInstant);
                     System.out.println("\n");
                 }
                 weathers.add(weather);
@@ -83,7 +82,7 @@ public class WeatherController{
     }
 
     public static void main(String[] args) {
-        WeatherController weatherController = new WeatherController(new MapWeatherProvider());
+        WeatherController weatherController = new WeatherController( new MapWeatherProvider(MapWeatherProvider.getApiKey()));
         weatherController.execute();
     }
     }

@@ -9,6 +9,8 @@ import dacd.gonzalez.model.Weather;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -16,20 +18,23 @@ import java.util.concurrent.TimeUnit;
 
 
 public class Main {
+
     public static void main(String[] args) {
 
+        Timer timer = new Timer();
 
-            // Crea un ScheduledExecutorService con un hilo para ejecutar tareas programadas
-            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                WeatherController weatherController = new WeatherController(new MapWeatherProvider(args[0]));
+                weatherController.execute();
+            }
+        };
 
-            // Programa la tarea para ejecutarse cada seis horas
-            scheduler.scheduleAtFixedRate(() -> {
-                execute();
-            }, 0, 6, TimeUnit.HOURS);
-        }
-        private static void execute() {
-            // Aquí colocas la lógica que deseas ejecutar cada seis horas
-            System.out.println("Ejecutando la tarea cada seis horas");
-
-        }
+        long time_of_execution = 6 * 60 * 60 * 1000;
+        timer.schedule(timerTask, 0, time_of_execution);
     }
+
+
+}
+
