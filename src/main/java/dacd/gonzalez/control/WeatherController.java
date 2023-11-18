@@ -44,8 +44,7 @@ public class WeatherController{
 
     }
 
-    public static ArrayList<Weather> CallWeatherGet(ArrayList<Instant> instants, ArrayList<Location> islands,
-                                                    ArrayList<Weather> weathers) {
+    public static ArrayList<Weather> CallWeatherGet(ArrayList<Instant> instants, ArrayList<Location> islands, ArrayList<Weather> weathers) {
         WeatherProvider weatherProvider = new MapWeatherProvider(MapWeatherProvider.getApiKey());
         for (Location iteredLocation : islands) {
             for (Instant iteredInstant : instants) {
