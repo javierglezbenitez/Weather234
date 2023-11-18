@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Api key personal">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
-    </list>
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Readme.md done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700312751889</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Readme.md done">
+      <option name="closed" value="true" />
+      <created>1700318897086</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700318897086</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,6 +166,7 @@
     <MESSAGE value="Tablas creadas" />
     <MESSAGE value="base de datos done" />
     <MESSAGE value="Api key personal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Api key personal" />
+    <MESSAGE value="Readme.md done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme.md done" />
   </component>
 </project>
