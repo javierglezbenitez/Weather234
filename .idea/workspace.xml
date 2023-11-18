@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Readme.md done">
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Api key personal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +26,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
