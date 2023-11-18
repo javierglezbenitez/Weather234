@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Method doesWeatherExist done">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Tablas creadas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +47,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.control.Main" />
       <module name="Weather" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;&amp;appid=51cb3b621914382d96a450c0f3451582&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;51cb3b621914382d96a450c0f3451582&quot; &quot;https://api.openweathermap.org/data/2.5/forecast&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="dacd.gonzalez.control.*" />
@@ -119,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699895745200</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Tablas creadas">
+      <option name="closed" value="true" />
+      <created>1700066603391</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700066603391</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,6 +145,7 @@
     <MESSAGE value="Method load done" />
     <MESSAGE value="Interface WeatherStore" />
     <MESSAGE value="Method doesWeatherExist done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Method doesWeatherExist done" />
+    <MESSAGE value="Tablas creadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tablas creadas" />
   </component>
 </project>

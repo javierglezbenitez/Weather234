@@ -5,8 +5,9 @@ import dacd.gonzalez.model.Weather;
 
 import java.time.Instant;
 
-public interface WeatherStore {
-    void save(Weather weather);
+public  interface WeatherStore {
+    void save(Location location, Instant instant);
 
-    void load(Location location, Instant instant);
+
+
 }

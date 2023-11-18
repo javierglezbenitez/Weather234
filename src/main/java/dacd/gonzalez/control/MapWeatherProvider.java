@@ -15,6 +15,7 @@ import java.time.ZoneId;
 
 public class MapWeatherProvider implements WeatherProvider {
 
+
     @Override
     public  Weather WeatherGet(Location location, Instant instant) {
 
@@ -32,10 +33,8 @@ public class MapWeatherProvider implements WeatherProvider {
 
             for (JsonElement list : lists) {
                 JsonObject weather = list.getAsJsonObject();
-                int dt = weather.get("dt").getAsInt();
-                long unixTimestamp = dt;
-                Instant weatherInstant = Instant.ofEpochSecond(unixTimestamp);
-                if (weatherInstant.atZone(ZoneId.of("UTC")).toLocalTime().equals(LocalTime.of(12, 0))) {
+
+
                     JsonObject main = weather.get("main").getAsJsonObject();
 
                     JsonObject clouds = weather.get("clouds").getAsJsonObject();
@@ -46,11 +45,16 @@ public class MapWeatherProvider implements WeatherProvider {
                     int all = clouds.get("all").getAsInt();
                     double speed = wind.get("speed").getAsDouble();
                     Double pop = weather.get("pop").getAsDouble();
+                    int dt = weather.get("dt").getAsInt();
+                    long unixTimestamp = dt;
+                    Instant weatherInstant = Instant.ofEpochSecond(unixTimestamp);
 
+                if (weatherInstant.equals(instant)) {
                     weatherObject = new Weather(temp, humidity, all, speed, pop, weatherInstant);
+                    break;
+                }
 
                         }
-                }
 
         } catch (Exception e) {
             throw new RuntimeException();
