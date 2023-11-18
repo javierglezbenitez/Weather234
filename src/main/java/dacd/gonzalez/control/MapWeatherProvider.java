@@ -42,26 +42,26 @@ public class MapWeatherProvider implements WeatherProvider {
                 JsonObject weather = list.getAsJsonObject();
 
 
-                    JsonObject main = weather.get("main").getAsJsonObject();
+                JsonObject main = weather.get("main").getAsJsonObject();
 
-                    JsonObject clouds = weather.get("clouds").getAsJsonObject();
-                    JsonObject wind = weather.get("wind").getAsJsonObject();
+                JsonObject clouds = weather.get("clouds").getAsJsonObject();
+                JsonObject wind = weather.get("wind").getAsJsonObject();
 
-                    double temp = main.get("temp").getAsDouble();
-                    int humidity = main.get("humidity").getAsInt();
-                    int all = clouds.get("all").getAsInt();
-                    double speed = wind.get("speed").getAsDouble();
-                    Double pop = weather.get("pop").getAsDouble();
-                    int dt = weather.get("dt").getAsInt();
-                    long unixTimestamp = dt;
-                    Instant weatherInstant = Instant.ofEpochSecond(unixTimestamp);
+                double temp = main.get("temp").getAsDouble();
+                int humidity = main.get("humidity").getAsInt();
+                int all = clouds.get("all").getAsInt();
+                double speed = wind.get("speed").getAsDouble();
+                Double pop = weather.get("pop").getAsDouble();
+                int dt = weather.get("dt").getAsInt();
+                long unixTimestamp = dt;
+                Instant weatherInstant = Instant.ofEpochSecond(unixTimestamp);
 
                 if (weatherInstant.equals(instant)) {
                     weatherObject = new Weather(temp, humidity, all, speed, pop, weatherInstant);
                     break;
                 }
 
-                        }
+            }
 
         } catch (Exception e) {
             throw new RuntimeException();

@@ -3,12 +3,12 @@ package dacd.gonzalez.model;
 import java.time.Instant;
 
 public class Weather {
-    private static double temp;
-    private static int humidity;
-    private static int all;
-    private static double speed;
-    private static Double pop;
-    private static Instant dt;
+    private final double temp;
+    private final int humidity;
+    private final int all;
+    private final double speed;
+    private final Double pop;
+    private final Instant dt;
 
     public Weather(double temp, int humidity, int all, double speed, Double pop, Instant dt) {
         this.temp = temp;

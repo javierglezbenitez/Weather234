@@ -2,12 +2,9 @@ package dacd.gonzalez.control;
 
 import dacd.gonzalez.model.Location;
 import dacd.gonzalez.model.Weather;
-
-
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.List;
 
 public class WeatherController{
 
@@ -26,7 +23,15 @@ public class WeatherController{
         Location palma = new Location("Palma", 28.68351, -17.76421);
         Location graciosa = new Location("Graciosa", 29.23147, -13.50341);
 
-        List<Location> islands = List.of(lanzarote, fuerteventura, GranCanaria, tenerife, hierro, gomera, palma, graciosa);
+            ArrayList<Location> islands = new ArrayList<>();
+            islands.add(lanzarote);
+            islands.add(fuerteventura);
+            islands.add(GranCanaria);
+            islands.add(tenerife);
+            islands.add(hierro);
+            islands.add(gomera);
+            islands.add(palma);
+            islands.add(graciosa);
 
 
 
@@ -37,6 +42,27 @@ public class WeatherController{
         CallWeatherGet(instants, islands, weathers);
         CallStored(instants, islands);
 
+    }
+
+    public static ArrayList<Weather> CallWeatherGet(ArrayList<Instant> instants, ArrayList<Location> islands,
+                                                    ArrayList<Weather> weathers) {
+        WeatherProvider weatherProvider = new MapWeatherProvider(MapWeatherProvider.getApiKey());
+        for (Location iteredLocation : islands) {
+            for (Instant iteredInstant : instants) {
+                Weather weather = weatherProvider.WeatherGet(iteredLocation, iteredInstant);
+                weathers.add(weather);
+            }
+        }
+        return weathers;
+    }
+
+    public static void CallStored(ArrayList<Instant> instants, ArrayList<Location> islands) {
+        for (Location iteredLocation : islands) {
+            WeatherStore weatherStore = new SqliteWeatherStore();
+            for (Instant iteredInstant : instants) {
+                weatherStore.save(iteredLocation, iteredInstant);
+            }
+        }
     }
     public static ArrayList<Instant> InstantCreated(ArrayList<Instant> instants) {
         for (int i = 0; i < 5; i++) {
@@ -50,40 +76,8 @@ public class WeatherController{
         return instants;
     }
 
-    public static ArrayList<Weather> CallWeatherGet(ArrayList<Instant> instants, List<Location> islands,
-                                                    ArrayList<Weather> weathers) {
-        WeatherProvider weatherProvider = new MapWeatherProvider(MapWeatherProvider.getApiKey());
-
-        for (Location iteredLocation : islands) {
-            for (Instant iteredInstant : instants) {
-                Weather weather = weatherProvider.WeatherGet(iteredLocation, iteredInstant);
-
-                if (weather != null) {
-                    System.out.println("Climate of " + iteredLocation.getName() + " at " + iteredInstant );
-                    System.out.println("\n");
-                } else {
-                    System.out.println("Is not Climate for" + iteredLocation.getName() + " at " + iteredInstant);
-                    System.out.println("\n");
-                }
-                weathers.add(weather);
-            }
-            System.out.println("\n");
-        }
-        return weathers;
-    }
-
-    public static void CallStored(ArrayList<Instant> instants, List<Location> islands) {
-        for (Location iteredLocation : islands) {
-            WeatherStore weatherStore = new SQLiteWeatherStore();
-            for (Instant iteredInstant : instants) {
-                weatherStore.save(iteredLocation, iteredInstant);
-            }
-        }
-    }
-
     public static void main(String[] args) {
         WeatherController weatherController = new WeatherController( new MapWeatherProvider(MapWeatherProvider.getApiKey()));
         weatherController.execute();
     }
-    }
-
+}
