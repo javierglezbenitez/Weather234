@@ -1,41 +1,37 @@
-# _Práctica1_
+# _Practice1_
 Desarrollo de Aplicaciones para Ciencia de datos(DACD)  
 Curso 2023-2024  
 Grado en Ciencia e Ingeniería de Datos  
 Universidad Las Palmas de Gran Canaria(ULPGC)  
 
 
-## _Funcionalidad_
- El programa se encarga de obtener y almacenar datos meteorológicos de diversas ubicaciones e intervalos regulares de tiempo utilizando un proveedor de clima(una Appi) y almacenando los resultados en una base de datos SQLite. Esto se logra mediante el uso de temporizadores para ejecutar estas operaciones de manera automática y periódica, específicamente cada 6 horas.
+## _Functionality_
+The programme attempts to obtain and store weather data from various locations and regular time intervals using a weather provider (an Appi) and storing the results in a SQLite database. This is achieved by using timers to run these operations automatically and periodically, specifically every 6 hours.
 
-## _Recursos utilizados_
+## _Resources Used_
 
-#### Entornos de desarrollos
+#### Development Enviroment
 
-El proyecto se desarrolla en Intellij. El lenguaje utilizado para la implementación del código es Java.
+The project is developed in Intellij. The language used for the implementation of the code is Java.
 
-#### Herramientas de Control de Versiones
+#### Version Control Tools
 
-Utilizo la herramienta Git para el control de versiones. Gracias a git se pueden realizar cambios en el desarrollo del codigo sin que exista la posibilidad de que se puedan borrar
+The Git tool is used for version control. Thanks to git it is possible to make changes in the development of the code without the possibility of deleting them.
 
-#### Herramientas de Documentación
+#### Documentation Tools
 
-Utilizo MarkDown que proporciona una visión rápida y concisa del proyecto.
+I use MarkDown which provides a quick and concise overview of the project.
 
+## _Design_
 
+#### Patterns of designs
+The application follows the Single Responsibility Principle (SRP), ensuring that each component has a single responsibility and improving code clarity and maintainability. In turn, it uses the Controller design pattern, part of the Model-View-Controller (MVC), to efficiently manage the interaction between the model and the view, achieving a clear separation of responsibilities.
 
-
-## Diseño
-
-#### Patrones de diseños
-La aplicación sigue el principio de Responsabilidad Única (SRP), garantizando que cada componente tenga una única responsabilidad y mejorando la claridad y mantenibilidad del código. A su vez, utiliza el patrón de diseño Controlador, parte del Modelo-Vista-Controlador (MVC), para gestionar eficientemente la interacción entre el modelo y la vista, logrando una clara separación de responsabilidades.
-
-
-#### Principio de diseño
-Estructura del diseño viene dada en dos grandes paquetes:
-Por un lado tenemos, "dacd.gonzalez.control".  En este paquete recoge las clases del control y permite hacer la funcionalidad del proyecto, recoger y guardar datos de una Appi a un SQLite.  
-Por otra parte esta, "dacd.gonzalez.model". En él se encuentran las clases del model que recoge  información meteorológica(velocidad del viento, humedad...) y la ubicación(Latitud y longitud).
+#### Design principle
+The structure of the design is given in two large packages:
+On one side we have, "dacd.gonzalez.control".  This package collects the classes of the control and allows the functionality of the project, collecting and saving data from an Appi to a SQLite.  
+On the other hand, there is "dacd.gonzalez.model". In it are the classes of the model that collects meteorological information (wind speed, humidity...) and the location (latitude and longitude).
 
 
-#### Diagrama del Proyecto en StarUml
+#### StarUml  Diagram
 ![image](https://github.com/javierglezbenitez/Weather234/assets/145259489/09049bab-81da-459c-9ca8-a61b69c15804)
