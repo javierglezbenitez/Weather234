@@ -2,9 +2,9 @@ package dacd.gonzalez.model;
 
 public class Location {
 
-    private final String name;
-    private final double lat;
-    private final double lon;
+    private static String name;
+    private static double lat;
+    private static double lon;
 
     public Location(String name, double lat, double lon) {
         this.name = name;

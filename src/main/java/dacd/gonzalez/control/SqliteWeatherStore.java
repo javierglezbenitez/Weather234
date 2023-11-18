@@ -36,7 +36,7 @@ import java.util.List;
                     Statement statement = connection.createStatement();
                     statement.executeUpdate(createTableSQL);
 
-                    if (doesWeatherRecordExist(connection, tableName, instant.toString())) {
+                    if (CheckIfExistData(connection, tableName, instant.toString())) {
                         String updateWeatherSQL = "UPDATE " + tableName + " SET temperature=?, humidity=?, clouds=?, wind=?, pop=? " +
                                 "WHERE instant=?";
                         PreparedStatement updateStatement = connection.prepareStatement(updateWeatherSQL);
@@ -74,7 +74,7 @@ import java.util.List;
             }
         }
 
-        private static boolean doesWeatherRecordExist(Connection connection, String tableName, String instant)
+        private static boolean CheckIfExistData(Connection connection, String tableName, String instant)
                 throws SQLException {
             String checkSQL = "SELECT COUNT(*) FROM " + tableName + " WHERE instant = ?";
             PreparedStatement checkStatement = connection.prepareStatement(checkSQL);

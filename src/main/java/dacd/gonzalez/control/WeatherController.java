@@ -33,12 +33,12 @@ public class WeatherController{
         ArrayList<Weather> weathers = new ArrayList<>();
         ArrayList<Instant> instants = new ArrayList<>();
 
-        createInstant(instants);
-        getWeatherCall(instants, islands, weathers);
-        saveCall(instants, islands);
+        InstantCreated(instants);
+        CallWeatherGet(instants, islands, weathers);
+        CallStored(instants, islands);
 
     }
-    public static ArrayList<Instant> createInstant(ArrayList<Instant> instants) {
+    public static ArrayList<Instant> InstantCreated(ArrayList<Instant> instants) {
         for (int i = 0; i < 5; i++) {
             LocalDate today = LocalDate.now();
             LocalTime hour = LocalTime.of(12, 0);
@@ -50,7 +50,7 @@ public class WeatherController{
         return instants;
     }
 
-    public static ArrayList<Weather> getWeatherCall(ArrayList<Instant> instants, List<Location> islands,
+    public static ArrayList<Weather> CallWeatherGet(ArrayList<Instant> instants, List<Location> islands,
                                                     ArrayList<Weather> weathers) {
         WeatherProvider weatherProvider = new MapWeatherProvider(MapWeatherProvider.getApiKey());
 
@@ -72,7 +72,7 @@ public class WeatherController{
         return weathers;
     }
 
-    public static void saveCall(ArrayList<Instant> instants, List<Location> islands) {
+    public static void CallStored(ArrayList<Instant> instants, List<Location> islands) {
         for (Location iteredLocation : islands) {
             WeatherStore weatherStore = new SQLiteWeatherStore();
             for (Instant iteredInstant : instants) {
