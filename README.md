@@ -28,14 +28,14 @@ Utilizo MarkDown que proporciona una visión rápida y concisa del proyecto.
 ## Diseño
 
 #### Patrones de diseños
-Patrones y Principios de Diseño Utilizados
-La aplicación sigue el principio de responsabilidad única y utiliza el patrón de diseño de controlador. A través de la separación de responsabilidades, se logra un código más claro y mantenible. El código está estructurado en tres paquetes principales:
+La aplicación sigue el principio de Responsabilidad Única (SRP), garantizando que cada componente tenga una única responsabilidad y mejorando la claridad y mantenibilidad del código. A su vez, utiliza el patrón de diseño Controlador, parte del Modelo-Vista-Controlador (MVC), para gestionar eficientemente la interacción entre el modelo y la vista, logrando una clara separación de responsabilidades.
 
 
 #### Principio de diseño
-dacd.gonzalez.control:  En este paquete recoge las clases del control.
-dacd.gonzalez.model: Contiene las clases del model que recoge  información meteorológica(velocidad del viento, humedad...) y la ubicación(Latitud y longitud).
+Estructura del diseño viene dada en dos grandes paquetes:
+Por un lado tenemos, "dacd.gonzalez.control".  En este paquete recoge las clases del control y permite hacer la funcionalidad del proyecto, recoger y guardar datos de una Appi a un SQLite.  
+Por otra parte esta, "dacd.gonzalez.model". En él se encuentran las clases del model que recoge  información meteorológica(velocidad del viento, humedad...) y la ubicación(Latitud y longitud).
 
 
 #### Diagrama del Proyecto en StarUml
-![image](https://github.com/javierglezbenitez/javierglezbenitez/assets/145259489/0648d2e7-3c9d-4458-a252-16d51f57e309)
+![image](https://github.com/javierglezbenitez/Weather234/assets/145259489/09049bab-81da-459c-9ca8-a61b69c15804)
