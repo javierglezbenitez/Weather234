@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Project Finished">
-      <change afterPath="$PROJECT_DIR$/event-store-builder/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/JmsWeatherStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/SqliteWeatherStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/control/WeatherStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Location.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dacd/gonzalez/model/Weather.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,15 +46,15 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
-    "onboarding.tips.debug.path": "C:/Users/cgsos/Weather/event-store-builder/src/main/java/dacd/gonzalez/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/cgsos/Weather/event-store-builder/src/main/java/dacd/gonzalez/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\cgsos\Weather\prediction-provider" />
@@ -65,8 +64,8 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.control.Main" />
-      <module name="Weather" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;51cb3b621914382d96a450c0f3451582&quot; " />
+      <module name="prediction-provider" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;51cb3b621914382d96a450c0f3451582&quot;  tcp://LAPTOP-93SSDTGR:61616" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="dacd.gonzalez.control.*" />
