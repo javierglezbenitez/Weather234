@@ -9,10 +9,14 @@ import java.util.List;
 
 public class WeatherController{
 
-    public WeatherProvider weatherProvider;
+    private WeatherProvider weatherProvider;
+    private WeatherStore weatherStore;
     public WeatherController(WeatherProvider weatherProvider, WeatherStore weatherStore){
         this.weatherProvider = weatherProvider;
+        this.weatherStore = weatherStore;
     }
+
+
 
     public void execute(){
         Location lanzarote = new Location("Lanzarote", 28.96302, -13.54769);
@@ -29,8 +33,10 @@ public class WeatherController{
         ArrayList<Weather> weathers = new ArrayList<>();
         ArrayList<Instant> instants = new ArrayList<>();
 
+
         instantCreated(instants);
         callWeatherGet(instants, islands, weathers);
+        callStored(instants, islands);
 
 
     }
@@ -58,5 +64,12 @@ public class WeatherController{
         return instants;
     }
 
+    public  void callStored(ArrayList<Instant> instants, List<Location> islands) {
+        for (Location iteredLocation : islands) {
+            for (Instant iteredInstant : instants) {
+                weatherStore.save(iteredLocation, iteredInstant);
+            }
+        }
+    }
 
-}
+    }

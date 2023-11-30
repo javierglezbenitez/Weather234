@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Project Finished">
-      <change afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/JmsWeatherStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="JmsWeatherStore done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction-provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/JmsWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/JmsWeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherStore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +58,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.control.Main" />
       <module name="prediction-provider" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;51cb3b621914382d96a450c0f3451582&quot;  tcp://LAPTOP-93SSDTGR:61616" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;51cb3b621914382d96a450c0f3451582&quot;  tcp://LAPTOP-93SSDTGR:61616 prediction.Weather" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="dacd.gonzalez.control.*" />
@@ -201,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700339228776</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="JmsWeatherStore done">
+      <option name="closed" value="true" />
+      <created>1701262713041</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701262713042</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +229,8 @@
     <MESSAGE value="Readme.md done" />
     <MESSAGE value=" Practice Done" />
     <MESSAGE value="Project Finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project Finished" />
+    <MESSAGE value="JmsWeatherStore done" />
+    <option name="LAST_COMMIT_MESSAGE" value="JmsWeatherStore done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
