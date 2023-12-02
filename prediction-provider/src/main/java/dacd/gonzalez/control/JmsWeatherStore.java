@@ -25,9 +25,7 @@ import java.util.Map;
       }
 
       @Override
-      public void save(Location location, Instant instant) {
-          WeatherProvider weatherProvider = new MapWeatherProvider(MapWeatherProvider.getApiKey());
-          Weather weather = weatherProvider.getWeather(location, instant);
+      public void send(Weather weather) {
           try{
           ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
           Connection connection = connectionFactory.createConnection();
@@ -50,7 +48,7 @@ import java.util.Map;
 
           producer.send(objectMessage);
 
-          System.out.println("Tiempo de" + location.getName() + ":" + json );
+          System.out.println("Tiempo: "  + json );
           connection.close();
       } catch (JMSException e) {
               throw new RuntimeException(e);

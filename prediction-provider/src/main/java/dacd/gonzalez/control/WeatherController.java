@@ -67,7 +67,7 @@ public class WeatherController{
     public  void callStored(ArrayList<Instant> instants, List<Location> islands) {
         for (Location iteredLocation : islands) {
             for (Instant iteredInstant : instants) {
-                weatherStore.save(iteredLocation, iteredInstant);
+                weatherStore.send(weatherProvider.getWeather(iteredLocation, iteredInstant));
             }
         }
     }
