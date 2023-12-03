@@ -43,6 +43,7 @@ import java.util.Map;
 
               String json = gson.toJson(weather);
 
+              System.out.println(weather);
 
           ObjectMessage objectMessage = session.createObjectMessage(json);
 

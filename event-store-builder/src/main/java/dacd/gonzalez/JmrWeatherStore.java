@@ -8,6 +8,9 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class JmrWeatherStore implements WeatherReciever {
 
@@ -25,7 +28,7 @@ public class JmrWeatherStore implements WeatherReciever {
     }
 
     @Override
-    public void receiveBrokerMessage() {
+    public List<Weather> receiveBrokerMessage() {
         try {
             ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
             Connection connection = connectionFactory.createConnection();
@@ -36,6 +39,8 @@ public class JmrWeatherStore implements WeatherReciever {
             Destination destination = session.createTopic(topicName);
 
             TopicSubscriber durableSubscriber = session.createDurableSubscriber((Topic) destination, "DurableSubscriber");
+
+            List<Weather> receivedWeatherList = new ArrayList<>();
 
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof ObjectMessage) {
@@ -48,24 +53,32 @@ public class JmrWeatherStore implements WeatherReciever {
                                 .create();
 
                         Weather weather = gson.fromJson(json, Weather.class);
+                        receivedWeatherList.add(weather);
+                        System.out.println(json);
 
-                        // Ahora puedes hacer lo que quieras con el objeto Weather
-                        System.out.println("Received Weather: " + json);
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
                 }
             });
 
-            // Mantén el hilo principal esperando para recibir mensajes
-            Thread.sleep(Long.MAX_VALUE);
+            // Wait until the desired number of messages is received or some timeout
+            int receivedCount = 0;
+            while (receivedCount < 40) {
+                Thread.sleep(100);
+
+                // Check if a message has been received
+                if (!receivedWeatherList.isEmpty()) {
+                    receivedCount++;
+                    receivedWeatherList.clear(); // Clear the list for the next batch of messages
+                }
+            }
 
             connection.close();
+            return receivedWeatherList;
         } catch (JMSException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
-
-
 }
 

@@ -4,6 +4,7 @@ import dacd.gonzalez.model.Weather;
 
 import java.util.List;
 
-public interface WeatherReciever {
-    List<Weather> receiveBrokerMessage();
+public interface EventReciver {
+
+    void mkdir(List<Weather> weather);
 }
