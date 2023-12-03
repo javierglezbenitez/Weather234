@@ -11,6 +11,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 public class JmrWeatherStore implements WeatherReciever {
 
@@ -28,7 +29,7 @@ public class JmrWeatherStore implements WeatherReciever {
     }
 
     @Override
-    public List<Weather> receiveBrokerMessage() {
+    public List<String>  receiveBrokerMessage() {
         try {
             ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
             Connection connection = connectionFactory.createConnection();
@@ -40,38 +41,26 @@ public class JmrWeatherStore implements WeatherReciever {
 
             TopicSubscriber durableSubscriber = session.createDurableSubscriber((Topic) destination, "DurableSubscriber");
 
-            List<Weather> receivedWeatherList = new ArrayList<>();
+            List<String> receivedWeatherList = new ArrayList<>();
 
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof ObjectMessage) {
                     ObjectMessage objectMessage = (ObjectMessage) message;
                     try {
                         String json = (String) objectMessage.getObject();
-                        Gson gson = new GsonBuilder()
-                                .registerTypeAdapter(Instant.class, (JsonDeserializer<Instant>) (jsonElement, type, jsonDeserializationContext) ->
-                                        Instant.ofEpochSecond(jsonElement.getAsLong()))
-                                .create();
+                        // Aquí puedes realizar operaciones adicionales si es necesario
+                        receivedWeatherList.add(json);
 
-                        Weather weather = gson.fromJson(json, Weather.class);
-                        receivedWeatherList.add(weather);
-                        System.out.println(json);
-
+                        System.out.println("Received Weather: " + json);
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
                 }
             });
 
-            // Wait until the desired number of messages is received or some timeout
-            int receivedCount = 0;
-            while (receivedCount < 40) {
+            // Esperar hasta que se reciba un mensaje
+            while (receivedWeatherList.isEmpty()) {
                 Thread.sleep(100);
-
-                // Check if a message has been received
-                if (!receivedWeatherList.isEmpty()) {
-                    receivedCount++;
-                    receivedWeatherList.clear(); // Clear the list for the next batch of messages
-                }
             }
 
             connection.close();
@@ -80,5 +69,7 @@ public class JmrWeatherStore implements WeatherReciever {
             throw new RuntimeException(e);
         }
     }
+
 }
+
 

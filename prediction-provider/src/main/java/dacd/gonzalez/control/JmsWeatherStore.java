@@ -26,15 +26,15 @@ import java.util.Map;
 
       @Override
       public void send(Weather weather) {
-          try{
-          ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
-          Connection connection = connectionFactory.createConnection();
-          connection.start();
+          try {
+              ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+              Connection connection = connectionFactory.createConnection();
+              connection.start();
 
-          Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-          Destination destination = session.createTopic(topic);
+              Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+              Destination destination = session.createTopic(topic);
 
-          MessageProducer producer = session.createProducer(destination);
+              MessageProducer producer = session.createProducer(destination);
 
               Gson gson = new GsonBuilder()
                       .registerTypeAdapter(Instant.class, (JsonSerializer<Instant>) (src, typeOfSrc, context) ->
@@ -43,15 +43,20 @@ import java.util.Map;
 
               String json = gson.toJson(weather);
 
-              System.out.println(weather);
+              if (json != null && !json.equals("null")) {
+                  System.out.println(weather);
 
-          ObjectMessage objectMessage = session.createObjectMessage(json);
+                  ObjectMessage objectMessage = session.createObjectMessage(json);
 
-          producer.send(objectMessage);
+                  producer.send(objectMessage);
 
-          System.out.println("Tiempo: "  + json );
-          connection.close();
-      } catch (JMSException e) {
+                  System.out.println("Tiempo: " + json);
+              } else {
+                  System.out.println("Skipping sending null object.");
+              }
+
+              connection.close();
+          } catch (JMSException e) {
               throw new RuntimeException(e);
           }
       }

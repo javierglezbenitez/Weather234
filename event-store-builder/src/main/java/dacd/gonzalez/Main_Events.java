@@ -15,7 +15,6 @@ public class Main_Events {
             @Override
             public void run() {
                 WeatherReciever weatherReciever = new JmrWeatherStore(args[0], args[1], subscriberName);
-                weatherReciever.receiveBrokerMessage();
                 EventReciver eventReciver = new EventStore();
                 eventReciver.mkdir(weatherReciever.receiveBrokerMessage());
 
