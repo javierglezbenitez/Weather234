@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Message List&lt;String&gt; events written">
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Correcion del direcotirio List weather">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventReciver.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventReciver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/JmrWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/JmrWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/Main_Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/Main_Events.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/WeatherReciever.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/WeatherReciever.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701610944135</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Correcion del direcotirio List weather">
+      <option name="closed" value="true" />
+      <created>1701672579641</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701672579641</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -273,7 +276,8 @@
     <MESSAGE value="Message weather receive" />
     <MESSAGE value="Message List&lt;weather&gt; receive" />
     <MESSAGE value="Message List&lt;String&gt; events written" />
-    <option name="LAST_COMMIT_MESSAGE" value="Message List&lt;String&gt; events written" />
+    <MESSAGE value="Correcion del direcotirio List weather" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcion del direcotirio List weather" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

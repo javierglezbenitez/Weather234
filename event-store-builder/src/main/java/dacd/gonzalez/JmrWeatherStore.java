@@ -70,7 +70,7 @@ public class JmrWeatherStore implements WeatherReciever {
 
                         System.out.println("Received Weather: " + weather);
                         System.out.println(receivedWeatherList.size());
-                        writeWeatherListToDirectory(receivedWeatherList, "tupadrebro");
+                        writeWeatherListToDirectory(receivedWeatherList);
 
                         // Puedes agregar aquí lógica adicional si es necesario
                     } catch (JMSException e) {
@@ -90,7 +90,7 @@ public class JmrWeatherStore implements WeatherReciever {
             throw new RuntimeException("Error while receiving JMS message", e);
         }
     }
-    public void writeWeatherListToDirectory(List<Weather> weatherList, String directoryPath) {
+    public void writeWeatherListToDirectory(List<Weather> weatherList) {
         if (weatherList.isEmpty()) {
             System.err.println("Weather list is empty. Nothing to write.");
             return;
@@ -99,6 +99,7 @@ public class JmrWeatherStore implements WeatherReciever {
         // Obtener el primer objeto Weather para información común
         Weather firstWeather = weatherList.get(0);
         String ts = firstWeather.getTs().toString().replace(":", "-");
+        String directoryPath = "eventstore" + File.separator + "prediction.Weather" + File.separator + firstWeather.getSs() + File.separator + ts;
 
         // Crear el directorio si no existe
         File directory = new File(directoryPath);
