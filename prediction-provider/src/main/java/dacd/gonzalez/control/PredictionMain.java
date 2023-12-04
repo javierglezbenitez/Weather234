@@ -3,7 +3,7 @@ package dacd.gonzalez.control;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Main_Prediction {
+public class PredictionMain {
 
     public static void main(String[] args) {
 

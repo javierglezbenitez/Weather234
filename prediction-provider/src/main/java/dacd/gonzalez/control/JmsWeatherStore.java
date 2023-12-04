@@ -23,7 +23,6 @@ import java.util.Map;
           this.url = url;
           this.topic = topic;
       }
-
       @Override
       public void send(Weather weather) {
           try {
@@ -54,7 +53,6 @@ import java.util.Map;
               } else {
                   System.out.println("Skipping sending null object.");
               }
-
               connection.close();
           } catch (JMSException e) {
               throw new RuntimeException(e);
