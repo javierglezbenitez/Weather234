@@ -12,6 +12,7 @@ public class Weather {
 
     private static final Instant ts = Instant.now();
     private static final String ss = "prediction-provider";
+    private  Location location;
 
     public Weather(double temp, int humidity, int all, double speed, Double pop, Instant dt) {
         this.temp = temp;
@@ -48,4 +49,8 @@ public class Weather {
 
     public Instant getTs(){return ts;}
     public String getSs(){return ss;}
+
+    public Location getLocation() {
+        return location;
+    }
 }

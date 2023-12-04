@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface EventReciver {
 
-    void mkdir(List<String> events);
+    void mkdir(List<Weather> events);
 }
