@@ -59,7 +59,7 @@ public class JmrWeatherStore implements EventStore {
                             receivedWeatherList.add(weather);
 
 
-                        System.out.println("Received Weather: " + weather);
+                        System.out.println("Received Weather: " + json);
                         System.out.println(receivedWeatherList.size());
                         WriteEvent.mkdir(receivedWeatherList);
 

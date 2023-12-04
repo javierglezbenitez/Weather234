@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="done">
-      <change afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/WriteEvent.java" afterDir="false" />
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="trabajo encaminado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventReciver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/JmrWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/JmrWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/Main_Events.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/WeatherReciever.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/JmsWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/JmsWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/Main_Prediction.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/PredictionMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/WriteEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/WriteEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/MapWeatherProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701672909238</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="trabajo encaminado">
+      <option name="closed" value="true" />
+      <created>1701699119095</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701699119095</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,7 +298,8 @@
     <MESSAGE value="Message List&lt;String&gt; events written" />
     <MESSAGE value="Correcion del direcotirio List weather" />
     <MESSAGE value="done" />
-    <option name="LAST_COMMIT_MESSAGE" value="done" />
+    <MESSAGE value="trabajo encaminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="trabajo encaminado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 
 public class WriteEvent {
@@ -20,7 +21,7 @@ public class WriteEvent {
         }
         Weather firstWeather = events.get(0);
         String ts = firstWeather.getTs().toString().replace(":", "-");
-        String directoryPath = "eventstore\\prediction.Weather\\" + firstWeather.getSs() + "\\" + ts;
+        String directoryPath = "eventstore" + File.separator + "prediction.Weather" + File.separator + firstWeather.getSs() ;
         File directory = new File(directoryPath);
         if (!directory.exists()) {
             if (directory.mkdirs()) {
@@ -31,7 +32,7 @@ public class WriteEvent {
             }
         }
 
-        String filePath = directoryPath + File.separator + "weather-data.events";
+        String filePath = directoryPath + File.separator + ts + ".events";
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Instant.class, (JsonSerializer<Instant>) (src, typeOfSrc, context) ->
                         context.serialize(src.getEpochSecond()))

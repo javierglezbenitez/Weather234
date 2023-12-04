@@ -8,6 +8,7 @@ import dacd.gonzalez.model.Location;
 import dacd.gonzalez.model.Weather;
 import org.jsoup.Jsoup;
 import java.time.Instant;
+import java.util.Locale;
 
 public class MapWeatherProvider implements WeatherProvider {
     private static String API_KEY;
@@ -43,6 +44,7 @@ public class MapWeatherProvider implements WeatherProvider {
 
 
                 JsonObject main = weather.get("main").getAsJsonObject();
+
 
                 JsonObject clouds = weather.get("clouds").getAsJsonObject();
                 JsonObject wind = weather.get("wind").getAsJsonObject();
