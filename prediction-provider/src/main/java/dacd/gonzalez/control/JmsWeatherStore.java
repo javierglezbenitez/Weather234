@@ -14,10 +14,8 @@ import java.time.Instant;
 import java.util.Map;
 
   public class JmsWeatherStore implements WeatherStore {
-
       private static String url;
       private static String topic;
-
       public JmsWeatherStore(String url, String topic) {
 
           this.url = url;
@@ -37,21 +35,15 @@ import java.util.Map;
 
               Gson gson = new GsonBuilder()
                       .registerTypeAdapter(Instant.class, (JsonSerializer<Instant>) (src, typeOfSrc, context) ->
-                              context.serialize(src.getEpochSecond()))
+                              context.serialize(src.toString()))
                       .create();
 
               String json = gson.toJson(weather);
 
               if (json != null && !json.equals("null")) {
-                  System.out.println(weather);
-
-                  ObjectMessage objectMessage = session.createObjectMessage(json);
-
-                  producer.send(objectMessage);
-
+                  TextMessage textMessage = session.createTextMessage(json);
+                  producer.send(textMessage);
                   System.out.println("Tiempo: " + json);
-              } else {
-                  System.out.println("Skipping sending null object.");
               }
               connection.close();
           } catch (JMSException e) {

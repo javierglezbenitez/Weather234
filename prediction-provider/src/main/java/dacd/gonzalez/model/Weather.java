@@ -10,8 +10,8 @@ public class Weather {
     private final Double pop;
     private final Instant dt;
 
-    private static final Instant ts = Instant.now();
-    private static final String ss = "prediction-provider";
+    private  final Instant ts;
+    private  final String ss;
 
 
     public Weather(double temp, int humidity, int all, double speed, Double pop, Instant dt) {
@@ -21,6 +21,8 @@ public class Weather {
         this.speed = speed;
         this.pop = pop;
         this.dt = dt;
+        this.ts = Instant.now();
+        this.ss = "prediction-provider";
 
     }
 

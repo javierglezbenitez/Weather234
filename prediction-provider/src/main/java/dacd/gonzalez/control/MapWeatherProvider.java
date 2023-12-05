@@ -54,9 +54,10 @@ public class MapWeatherProvider implements WeatherProvider {
                 int all = clouds.get("all").getAsInt();
                 double speed = wind.get("speed").getAsDouble();
                 Double pop = weather.get("pop").getAsDouble();
-                int dt = weather.get("dt").getAsInt();
-                long unixTimestamp = dt;
-                Instant weatherInstant = Instant.ofEpochSecond(unixTimestamp);
+                long dt = weather.get("dt").getAsLong();
+
+                Instant weatherInstant = Instant.ofEpochSecond(dt);
+
 
                 if (weatherInstant.equals(instant)) {
                     weatherObject = new Weather(temp, humidity, all, speed, pop, weatherInstant);
