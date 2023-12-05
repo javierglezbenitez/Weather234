@@ -7,8 +7,14 @@ import com.google.gson.JsonObject;
 import dacd.gonzalez.model.Location;
 import dacd.gonzalez.model.Weather;
 import org.jsoup.Jsoup;
+
+import java.io.IOException;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MapWeatherProvider implements WeatherProvider {
     private static String API_KEY;
@@ -26,50 +32,39 @@ public class MapWeatherProvider implements WeatherProvider {
 
     @Override
     public  Weather getWeather(Location location, Instant instant) {
-
-        Weather weatherObject = null;
         try {
+            String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + location.getLat() + "&lon=" + location.getLon() + "&appid=" + API_KEY;
+            JsonObject weathers = new Gson().fromJson(Jsoup.connect(apiUrl).ignoreContentType(true).execute().body(), JsonObject.class);
 
-            String url = "https://api.openweathermap.org/data/2.5/forecast?lat=" + location.getLat() + "&lon=" + location.getLon() +"&appid=" +  API_KEY;
-            String jsonString = Jsoup.connect(url).ignoreContentType(true).execute().body();
+            JsonArray listArray = weathers.getAsJsonArray("list");
+            List<JsonElement> listElements = new ArrayList<>();
+            listArray.forEach(listElements::add);
 
+            return listElements.stream()
+                    .map(JsonElement::getAsJsonObject)
+                    .filter(weather -> {
+                        long dt = weather.getAsJsonPrimitive("dt").getAsLong();
+                        return Instant.ofEpochSecond(dt).equals(instant);
+                    })
+                    .findFirst()
+                    .map(weather -> {
+                        JsonObject main = weather.getAsJsonObject("main");
+                        JsonObject clouds = weather.getAsJsonObject("clouds");
+                        JsonObject wind = weather.getAsJsonObject("wind");
 
-            Gson gson = new Gson();
-            JsonObject weathers = gson.fromJson(jsonString, JsonObject.class);
-            JsonArray lists = weathers.getAsJsonObject().getAsJsonArray("list");
+                        double temp = main.getAsJsonPrimitive("temp").getAsDouble();
+                        int humidity = main.getAsJsonPrimitive("humidity").getAsInt();
+                        int all = clouds.getAsJsonPrimitive("all").getAsInt();
+                        double speed = wind.getAsJsonPrimitive("speed").getAsDouble();
+                        double pop = weather.getAsJsonPrimitive("pop").getAsDouble();
+                        Instant weatherInstant = Instant.ofEpochSecond(weather.getAsJsonPrimitive("dt").getAsLong());
 
-
-            for (JsonElement list : lists) {
-                JsonObject weather = list.getAsJsonObject();
-
-
-                JsonObject main = weather.get("main").getAsJsonObject();
-
-
-                JsonObject clouds = weather.get("clouds").getAsJsonObject();
-                JsonObject wind = weather.get("wind").getAsJsonObject();
-
-                double temp = main.get("temp").getAsDouble();
-                int humidity = main.get("humidity").getAsInt();
-                int all = clouds.get("all").getAsInt();
-                double speed = wind.get("speed").getAsDouble();
-                Double pop = weather.get("pop").getAsDouble();
-                long dt = weather.get("dt").getAsLong();
-
-                Instant weatherInstant = Instant.ofEpochSecond(dt);
-
-
-                if (weatherInstant.equals(instant)) {
-                    weatherObject = new Weather(temp, humidity, all, speed, pop, weatherInstant);
-                    break;
-                }
-
-            }
-
-        } catch (Exception e) {
-            throw new RuntimeException();
-
+                        return new Weather(temp, humidity, all, speed, pop, weatherInstant);
+                    })
+                    .orElse(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
-        return weatherObject;
     }
 }

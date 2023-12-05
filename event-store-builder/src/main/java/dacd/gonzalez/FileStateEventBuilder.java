@@ -19,7 +19,7 @@ public class FileStateEventBuilder implements Listener {
         this.url = url;
     }
     @Override
-    public void consume(String message) throws JsonProcessingException {
+    public void write(String message) throws JsonProcessingException {
         Gson gson = new Gson();
         JsonObject jsonObject = gson.fromJson(message, JsonObject.class);
 
@@ -30,16 +30,16 @@ public class FileStateEventBuilder implements Listener {
         LocalDateTime dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        String formattedDate = dateTime.format(formatter);
+        String date = dateTime.format(formatter);
 
-        String directoryPath = url + File.separator + ssValue;
-        File directory = new File(directoryPath);
+        String path = url + File.separator + ssValue;
+        File directory = new File(path);
         if (!directory.exists()) {
             directory.mkdirs();
             System.out.println("Directory created");
         }
 
-        String filePath = directoryPath + File.separator + formattedDate + ".events";
+        String filePath = path + File.separator + date + ".events";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(message);
             writer.newLine();

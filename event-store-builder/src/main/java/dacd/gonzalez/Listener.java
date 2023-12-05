@@ -5,5 +5,5 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
 
 public interface Listener {
-    void consume(String message) throws JsonProcessingException;
+    void write(String message) throws JsonProcessingException;
 }

@@ -22,20 +22,18 @@ public class AMQTopicSubscriber implements Subscriber {
     }
 
     @Override
-    public void start(Listener listener, String topicName ){
+    public void receive(Listener listener, String topicName ){
         try {
-
             Destination destination = session.createTopic(topicName);
 
             MessageConsumer durableSubscriber = session.createDurableSubscriber((Topic) destination, "prediction-provider"+ topicName);
-
 
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof TextMessage) {
                     try {
                         String text = ((TextMessage) message).getText();
                         System.out.println("Received message: " + text);
-                        listener.consume(text);
+                        listener.write(text);
                     } catch (JMSException e) {
                         e.printStackTrace();
                     } catch (JsonProcessingException e) {
@@ -44,10 +42,9 @@ public class AMQTopicSubscriber implements Subscriber {
                 }
             });
             Thread.sleep(Long.MAX_VALUE);
-
             connection.close();
         } catch (JMSException | InterruptedException e) {
-            throw new RuntimeException("Error while receiving JMS message", e);
+            throw new RuntimeException("Error to receive the message", e);
         }
     }
 }
