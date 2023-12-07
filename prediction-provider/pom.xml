@@ -42,11 +42,11 @@
                 <version>3.3.0</version>
                 <configuration>
                     <archive>
-                        <manifes>
+                        <manifest>
                             <mainClass>dacd.gonzalez.control.PredictionMain</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
-                        </manifes>
+                        </manifest>
                     </archive>
                 </configuration>
             </plugin>

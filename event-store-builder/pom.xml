@@ -57,11 +57,11 @@
                 <version>3.3.0</version>
                 <configuration>
                     <archive>
-                        <manifes>
+                        <manifest>
                             <mainClass>dacd.gonzalez.EventMain</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
-                        </manifes>
+                        </manifest>
                     </archive>
                 </configuration>
             </plugin>

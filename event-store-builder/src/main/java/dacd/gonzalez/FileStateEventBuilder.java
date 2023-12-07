@@ -16,8 +16,8 @@ public class FileStateEventBuilder implements Listener {
         this.directory = directory;
     }
     @Override
-    public void write(String message) throws JsonProcessingException {
-        JsonObject jsonObject = new Gson().fromJson(message, JsonObject.class);
+    public void write(String event) throws JsonProcessingException {
+        JsonObject jsonObject = new Gson().fromJson(event, JsonObject.class);
         String ss = jsonObject.getAsJsonPrimitive("ss").getAsString();
         String ts = jsonObject.getAsJsonPrimitive("ts").getAsString();
 
@@ -32,7 +32,7 @@ public class FileStateEventBuilder implements Listener {
         String file= path + File.separator + date + ".events";
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
-            bufferedWriter.write(message);
+            bufferedWriter.write(event);
             bufferedWriter.newLine();
             System.out.println("File written to the directory: " + file);
         } catch (IOException e) {

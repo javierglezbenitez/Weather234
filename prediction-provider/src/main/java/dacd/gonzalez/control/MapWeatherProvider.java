@@ -48,6 +48,11 @@ public class MapWeatherProvider implements WeatherProvider {
                     })
                     .findFirst()
                     .map(weather -> {
+                        JsonObject city = weathers.getAsJsonObject("city");
+                        String name = city.getAsJsonPrimitive("name").getAsString();
+                        double lat = city.getAsJsonObject("coord").getAsJsonPrimitive("lat").getAsDouble();
+                        double lon = city.getAsJsonObject("coord").getAsJsonPrimitive("lon").getAsDouble();
+
                         JsonObject main = weather.getAsJsonObject("main");
                         JsonObject clouds = weather.getAsJsonObject("clouds");
                         JsonObject wind = weather.getAsJsonObject("wind");
@@ -59,10 +64,6 @@ public class MapWeatherProvider implements WeatherProvider {
                         double pop = weather.getAsJsonPrimitive("pop").getAsDouble();
                         Instant weatherInstant = Instant.ofEpochSecond(weather.getAsJsonPrimitive("dt").getAsLong());
 
-                        JsonObject city = weathers.getAsJsonObject("city");
-                        String name = city.getAsJsonPrimitive("name").getAsString();
-                        double lat = city.getAsJsonObject("coord").getAsJsonPrimitive("lat").getAsDouble();
-                        double lon = city.getAsJsonObject("coord").getAsJsonPrimitive("lon").getAsDouble();
 
                         Location cityLocation = new Location(name, lat, lon);
 
