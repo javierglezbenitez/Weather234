@@ -33,12 +33,6 @@
             <version>1.2.3</version>
         </dependency>
         <dependency>
-            <groupId>dacd.gonzalez</groupId>
-            <artifactId>prediction-provider</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.9</version>
