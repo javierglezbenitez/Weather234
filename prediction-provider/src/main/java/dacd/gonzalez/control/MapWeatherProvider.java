@@ -35,11 +35,11 @@ public class MapWeatherProvider implements WeatherProvider {
         try {
             String apiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + location.getLat() + "&lon=" + location.getLon() + "&appid=" + API_KEY;
             JsonObject weathers = new Gson().fromJson(Jsoup.connect(apiUrl).ignoreContentType(true).execute().body(), JsonObject.class);
-
             JsonArray listArray = weathers.getAsJsonArray("list");
-            List<JsonElement> listElements = new ArrayList<>();
-            listArray.forEach(listElements::add);
 
+            List<JsonElement> listElements = new ArrayList<>();
+
+            listArray.forEach(listElements::add);
             return listElements.stream()
                     .map(JsonElement::getAsJsonObject)
                     .filter(weather -> {
@@ -59,7 +59,14 @@ public class MapWeatherProvider implements WeatherProvider {
                         double pop = weather.getAsJsonPrimitive("pop").getAsDouble();
                         Instant weatherInstant = Instant.ofEpochSecond(weather.getAsJsonPrimitive("dt").getAsLong());
 
-                        return new Weather(temp, humidity, all, speed, pop, weatherInstant);
+                        JsonObject city = weathers.getAsJsonObject("city");
+                        String name = city.getAsJsonPrimitive("name").getAsString();
+                        double lat = city.getAsJsonObject("coord").getAsJsonPrimitive("lat").getAsDouble();
+                        double lon = city.getAsJsonObject("coord").getAsJsonPrimitive("lon").getAsDouble();
+
+                        Location cityLocation = new Location(name, lat, lon);
+
+                        return new Weather(cityLocation, temp, humidity, all, speed, pop, weatherInstant);
                     })
                     .orElse(null);
         } catch (IOException e) {

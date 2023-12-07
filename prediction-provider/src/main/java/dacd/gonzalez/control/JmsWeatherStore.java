@@ -5,13 +5,9 @@ import javax.jms.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSerializer;
-import dacd.gonzalez.model.Location;
 import dacd.gonzalez.model.Weather;
-import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-
 import java.time.Instant;
-import java.util.Map;
 
   public class JmsWeatherStore implements WeatherStore {
       private static String url;

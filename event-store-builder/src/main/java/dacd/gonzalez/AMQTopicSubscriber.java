@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
-import java.util.ArrayList;
+
 
 public class AMQTopicSubscriber implements Subscriber {
     private final String url;

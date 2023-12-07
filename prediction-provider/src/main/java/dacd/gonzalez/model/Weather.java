@@ -8,22 +8,28 @@ public class Weather {
     private final int clouds;
     private final double windSpeed;
     private final Double precipitation;
-    private final Instant dt;
+    private final Instant instant;
 
     private  final Instant ts;
     private  final String ss;
+    private Location location;
 
 
-    public Weather(double temperature, int humidity, int rain, double windSpeed, Double precipitation, Instant dt) {
+    public Weather(Location location, double temperature, int humidity, int rain, double windSpeed, Double precipitation, Instant dt) {
+        this.location = location;
         this.temperature = temperature;
         this.humidity = humidity;
         this.clouds = rain;
         this.windSpeed = windSpeed;
         this.precipitation = precipitation;
-        this.dt = dt;
+        this.instant = dt;
         this.ts = Instant.now();
         this.ss = "prediction-provider";
 
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     public double getTemperature() {
@@ -46,12 +52,9 @@ public class Weather {
         return precipitation;
     }
 
-    public Instant getDt() {
-        return dt;
-    }
 
     public Instant getInstant() {
-        return dt;
+        return instant;
     }
 
     public Instant getTs(){return ts;}
