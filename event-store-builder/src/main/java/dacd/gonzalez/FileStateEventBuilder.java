@@ -10,11 +10,8 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class FileStateEventBuilder implements Listener {
-    private  String directory;
+    private  static String directory = "eventstore\\prediction.Weather";
 
-    public FileStateEventBuilder(String directory) {
-        this.directory = directory;
-    }
     @Override
     public void write(String event) throws JsonProcessingException {
         JsonObject jsonObject = new Gson().fromJson(event, JsonObject.class);
