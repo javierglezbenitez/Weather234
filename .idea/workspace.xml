@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="second practice done">
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="corrected directory">
+      <change afterPath="$PROJECT_DIR$/hotel-provider/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/model/Hotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/model/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/model/Rate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/EventMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/FileStateEventBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-store-builder/src/main/java/dacd/gonzalez/FileStateEventBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,37 +46,38 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/cgsos/Weather/event-store-builder/target&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/cgsos/Weather/event-store-builder/src/main/java/dacd/gonzalez/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/cgsos/Weather/event-store-builder/target",
+    "onboarding.tips.debug.path": "C:/Users/cgsos/Weather/hotel-provider/src/main/java/dacd/gonzalez/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\cgsos\Weather\event-store-builder\target" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cgsos\Weather" />
       <recent name="C:\Users\cgsos\Weather\prediction-provider" />
       <recent name="C:\Users\cgsos\Weather\prediction-provider\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EventMain">
+  <component name="RunManager" selected="Application.PredictionMain">
     <configuration name="EventMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.EventMain" />
       <module name="event-store-builder" />
       <option name="PROGRAM_PARAMETERS" value="tcp://LAPTOP-93SSDTGR:61616  prediction.Weather" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dacd.gonzalez.*" />
+          <option name="PATTERN" value="dacd.gonzalez.control.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,7 +91,7 @@
       <option name="PROGRAM_PARAMETERS" value="51cb3b621914382d96a450c0f3451582 tcp://LAPTOP-93SSDTGR:61616 prediction.Weather " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dacd.gonzalez.*" />
+          <option name="PATTERN" value="dacd.gonzalez.control.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -98,8 +105,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EventMain" />
         <item itemvalue="Application.PredictionMain" />
+        <item itemvalue="Application.EventMain" />
       </list>
     </recent_temporary>
   </component>
@@ -320,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701992129347</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="corrected directory">
+      <option name="closed" value="true" />
+      <created>1703406629719</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1703406629719</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +350,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Method GetWeather" />
     <MESSAGE value="WeatherController done" />
     <MESSAGE value="Method load done" />
     <MESSAGE value="Interface WeatherStore" />
@@ -360,7 +374,8 @@
     <MESSAGE value="location done" />
     <MESSAGE value="receive all done" />
     <MESSAGE value="second practice done" />
-    <option name="LAST_COMMIT_MESSAGE" value="second practice done" />
+    <MESSAGE value="corrected directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrected directory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -369,6 +384,16 @@
           <url>file://$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/Main.java</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hotel.provider/src/main/java/dacd/gonzalez/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

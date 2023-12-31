@@ -11,6 +11,8 @@
     <modules>
         <module>prediction-provider</module>
         <module>event-store-builder</module>
+        <module>hotel.provider</module>
+        <module>hotel-provider</module>
     </modules>
 
     <properties>
