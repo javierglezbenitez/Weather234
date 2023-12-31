@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PredictionMain {
+    private static String topicName = "prediction.Weather";
 
     public static void main(String[] args) {
 
@@ -13,7 +14,7 @@ public class PredictionMain {
             @Override
             public void run() {
                 WeatherProvider weatherProvider = new MapWeatherProvider(args[0]);
-                WeatherStore weatherStore = new JmsWeatherStore(args[1], args[2]);
+                WeatherStore weatherStore = new JmsWeatherStore(args[1], topicName);
                 WeatherController weatherController = new WeatherController(weatherProvider,weatherStore);
                 weatherController.execute();
             }

@@ -18,7 +18,7 @@ public class Hotel {
     public Hotel(ArrayList<Rate> rates, Location date,Instant timeStamp) {
         this.rates = rates;
         this.date = date;
-        this.ss = "prediction-provider";
+        this.ss = "hotel-provider";
         this.timeStamp=timeStamp;
         this.ts = Instant.now();
     }
