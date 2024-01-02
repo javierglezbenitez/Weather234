@@ -10,10 +10,14 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class FileStateEventBuilder implements Listener {
-    private  static String directory = "eventstore\\prediction.Weather";
+    private   String directory;
+
+    public FileStateEventBuilder(String directory) {
+        this.directory = directory;
+    }
 
     @Override
-    public void write(String event) throws JsonProcessingException {
+    public void write(String event, String topicName) throws JsonProcessingException {
         JsonObject jsonObject = new Gson().fromJson(event, JsonObject.class);
         String ss = jsonObject.getAsJsonPrimitive("ss").getAsString();
         String ts = jsonObject.getAsJsonPrimitive("ts").getAsString();
@@ -21,12 +25,14 @@ public class FileStateEventBuilder implements Listener {
         LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.parse(ts), ZoneId.systemDefault());
         String date = dateTime.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
-        String path = directory + File.separator + ss;
-        File directory = new File(path);
+        String path =   directory + File.separator + "datalake" + File.separator + "eventstore" +   File.separator + topicName + File.separator + ss;
+        File topicDirectory = new File(path);
 
-        if (directory.mkdirs()) System.out.println("Directory created");
+        if (topicDirectory.mkdirs()) {
+            System.out.println("Directory created: " + topicDirectory.getAbsolutePath());
+        }
 
-        String file= path + File.separator + date + ".events";
+        String file = path + File.separator + date + ".events";
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
             bufferedWriter.write(event);

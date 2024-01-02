@@ -5,19 +5,15 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSerializer;
 import dacd.gonzalez.model.Hotel;
 import org.apache.activemq.ActiveMQConnectionFactory;
-
 import javax.jms.*;
 import java.time.Instant;
-
 public class JmsHotelStore implements HotelStore  {
         private static String url;
         private static String topicName;
-
         public JmsHotelStore(String url, String topicName) {
             this.url = url;
             this.topicName = topicName;
         }
-
         @Override
         public void send(Hotel hotel) {
             try {
@@ -42,7 +38,7 @@ public class JmsHotelStore implements HotelStore  {
                     producer.send(textMessage);
                     System.out.println("Hotel: " + json);
                 } else {
-                    System.out.println("Skipping sending null object.");
+                    System.out.println("Not object sent");
                 }
                 connection.close();
             } catch (JMSException e) {

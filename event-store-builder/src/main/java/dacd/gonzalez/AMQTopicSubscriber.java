@@ -11,6 +11,8 @@ public class AMQTopicSubscriber implements Subscriber {
     private final Connection connection;
     private static String client = "prediction-provider";
     private final Session session;
+    private final String HotelTopicName = "prediction.Hotel";
+    private final String WeatherTopicName = "prediction.Weather";
 
     public AMQTopicSubscriber(String url) throws JMSException {
         this.url = url;
@@ -22,29 +24,42 @@ public class AMQTopicSubscriber implements Subscriber {
     }
 
     @Override
-    public void receive(Listener listener, String topicName ){
+    public void receive(Listener listener){
         try {
-            Destination destination = session.createTopic(topicName);
+            Topic destination = session.createTopic(HotelTopicName);
 
-            MessageConsumer durableSubscriber = session.createDurableSubscriber((Topic) destination, "prediction-provider"+ topicName);
+            MessageConsumer durableSubscriber = session.createDurableSubscriber(destination, client + HotelTopicName);
 
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof TextMessage) {
                     try {
-                        String text = ((TextMessage) message).getText();
-                        System.out.println("Received message: " + text);
-                        listener.write(text);
-                    } catch (JMSException e) {
+                        listener.write(((TextMessage) message).getText(), HotelTopicName);
+                    } catch (JMSException | JsonProcessingException e) {
                         e.printStackTrace();
-                    } catch (JsonProcessingException e) {
-                        throw new RuntimeException(e);
                     }
                 }
             });
-            Thread.sleep(Long.MAX_VALUE);
-            connection.close();
-        } catch (JMSException | InterruptedException e) {
-            throw new RuntimeException("Error to receive the message", e);
+        } catch (JMSException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            Topic destination = session.createTopic(WeatherTopicName);
+
+            MessageConsumer durableSubscriber = session.createDurableSubscriber(destination, client + WeatherTopicName);
+
+            durableSubscriber.setMessageListener(message -> {
+                if (message instanceof TextMessage) {
+                    try {
+                        listener.write(((TextMessage) message).getText(), WeatherTopicName);
+                    } catch (JMSException | JsonProcessingException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        } catch (JMSException e) {
+            throw new RuntimeException(e);
+
         }
     }
 }

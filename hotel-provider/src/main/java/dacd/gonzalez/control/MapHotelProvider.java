@@ -8,12 +8,9 @@ import dacd.gonzalez.model.Hotel;
 import dacd.gonzalez.model.Location;
 import dacd.gonzalez.model.Rate;
 import org.jsoup.Jsoup;
-
 import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.List;
-
 public class MapHotelProvider implements HotelProvider {
     @Override
     public Hotel getHotel(Location location) {

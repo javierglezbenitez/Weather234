@@ -33,8 +33,6 @@ public class HotelController {
 
 
         Location dubay1 = new Location(checkIn, checkOut, "g295424-d20326652", "Centara Mirage Beach Resort Dubai", "Dubay");
-        Location dubay2 = new Location(checkIn, checkOut, "g295424-d3447941", "JW Marriott Marquis Dubai", "Dubay");
-        Location dubay3 = new Location(checkIn, checkOut, "g295424-d7309237", "Taj Dubai", "Dubay");
         Location spain1 = new Location(checkIn, checkOut, "g187497-d24119358", "Ramblas Hotel", "Spain");
         Location spain2 = new Location(checkIn, checkOut, "g187497-d190616", "Majestic Hotel  Spa Barcelona", "Spain");
         Location spain3 = new Location(checkIn, checkOut, "g187514-d228529", "Palacio de los Duques Gran Melia", "Spain");
@@ -59,31 +57,41 @@ public class HotelController {
 
         List<Location> locations = List.of(dubay1, dubay2, dubay3, spain1,spain2, spain3, thailand1, thailand2, thailand3
                 ,paris1, paris2, paris3, newYorkCity1, newYorkCity2, newYorkCity3, amsterdam1, amsterdam2, amsterdam3
-                ,nairobi1, nairobi2, nairobi3, milan1, milan2, milan3
-        );
-        ArrayList<Hotel> hotels= new ArrayList<>();
+                ,nairobi1, nairobi2, nairobi3, milan1, milan2, milan3);
 
-        callWeatherGet(locations, hotels);
-        callStored(locations);
-
-
+        iteredDays(locations);
     }
 
     public ArrayList<Hotel> callWeatherGet( List<Location> locations, ArrayList<Hotel> hotels) {
         for (Location iteredLocation : locations) {
             Hotel hotel = hotelProvider.getHotel(iteredLocation);
             hotels.add(hotel);
-
         }
-        System.out.println(hotels.size());
         return hotels;
     }
 
     public  void callStored( List<Location> locations) {
         for (Location location : locations) {
             hotelStore.send(hotelProvider.getHotel(location));
-
         }
     }
 
-}
+    public void iteredDays(List < Location > locations){
+            LocalDate currentDate = LocalDate.now();
+            for (Location location : locations) {
+                for (int i = 0; i < 5; i++) {
+                    LocalDate checkInDate = currentDate.plusDays(i);
+                    LocalDate checkOutDate = checkInDate.plusDays(1); // Check-out is the next day
+
+                    String checkIn = checkInDate.format(DateTimeFormatter.ISO_DATE);
+                    String checkOut = checkOutDate.format(DateTimeFormatter.ISO_DATE);
+
+                    Location newLocation = new Location(checkIn, checkOut, location.getHotelKey(), location.getName(), location.getLocation());
+                    ArrayList<Hotel> hotels = new ArrayList<>();
+
+                    callWeatherGet(List.of(newLocation), hotels);
+                    callStored(List.of(newLocation));
+                }
+            }
+        }
+    }
