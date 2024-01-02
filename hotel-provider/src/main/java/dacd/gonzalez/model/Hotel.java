@@ -10,24 +10,19 @@ public class Hotel {
     private final Location date;
 
     private  final String ss;
-    private Instant timeStamp;
     private Instant ts;
 
 
 
-    public Hotel(ArrayList<Rate> rates, Location date,Instant timeStamp) {
+    public Hotel(ArrayList<Rate> rates, Location date) {
         this.rates = rates;
         this.date = date;
         this.ss = "hotel-provider";
-        this.timeStamp=timeStamp;
         this.ts = Instant.now();
     }
 
 
 
-    public Instant getTimeStamp() {
-        return timeStamp;
-    }
 
     public String getSs() {
         return ss;
