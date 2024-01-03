@@ -33,8 +33,8 @@ public class HotelController {
 
 
         Location dubay = new Location(checkIn, checkOut, "g295424-d20326652", "Centara Mirage Beach Resort Dubai", "Dubay");
-        Location spain = new Location(checkIn, checkOut, "g187497-d24119358", "Ramblas Hotel", "Spain");
-        Location thailand = new Location(checkIn, checkOut, "g293916-d1509981", "Marriott Executive Apartments", "Thailand");
+        Location spain = new Location(checkIn, checkOut, "g187497-d24119358", "Ramblas Hotel", "Madrid");
+        Location thailand = new Location(checkIn, checkOut, "g293916-d1509981", "Marriott Executive Apartments", "Bangkok");
         Location paris = new Location(checkIn, checkOut, "g187147-d2041918", "Mandarin Oriental Paris", "Paris");
         Location newYorkCity = new Location(checkIn, checkOut, "g60763-d8501479", "Mint House at 70 Pine", "New York City");
         Location amsterdam = new Location(checkIn, checkOut, "g188590-d5555141", "Waldorf Astoria Amsterdam", "Amsterdam");

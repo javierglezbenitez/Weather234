@@ -22,13 +22,12 @@ public class MapHotelProvider implements HotelProvider {
             JsonObject responseJson = new Gson().fromJson(jsonString, JsonObject.class);
             JsonObject resultObject = responseJson.getAsJsonObject("result");
 
-            if (resultObject != null) {
-                String checkInDate = resultObject.getAsJsonPrimitive("chk_in").getAsString();
-                String checkOutDate = resultObject.getAsJsonPrimitive("chk_out").getAsString();
-                Location location1 = new Location(checkInDate, checkOutDate, location.getHotelKey(), location.getName(), location.getLocation());
+            String checkInDate = resultObject.getAsJsonPrimitive("chk_in").getAsString();
+            String checkOutDate = resultObject.getAsJsonPrimitive("chk_out").getAsString();
+            Location location1 = new Location(checkInDate, checkOutDate, location.getHotelKey(), location.getName(), location.getLocation());
 
-                JsonArray ratesArray = resultObject.getAsJsonArray("rates");
-                ArrayList<Rate> rates = new ArrayList<>();
+            JsonArray ratesArray = resultObject.getAsJsonArray("rates");
+            ArrayList<Rate> rates = new ArrayList<>();
 
                 for (JsonElement element : ratesArray) {
                     JsonObject rateObject = element.getAsJsonObject();
@@ -41,7 +40,7 @@ public class MapHotelProvider implements HotelProvider {
                     rates.add(rate);
                 }
                 hotel = new Hotel(rates, location1);
-            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
 

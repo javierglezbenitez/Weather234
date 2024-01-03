@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="data lake corrected and done properly">
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="controller corrected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/MapHotelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/MapHotelProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/model/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,8 +116,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.EventMain" />
-        <item itemvalue="Application.HotelMain" />
         <item itemvalue="Application.PredictionMain" />
+        <item itemvalue="Application.HotelMain" />
       </list>
     </recent_temporary>
   </component>
@@ -370,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704210847568</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="controller corrected">
+      <option name="closed" value="true" />
+      <created>1704211874584</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1704211874584</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -385,7 +393,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Method doesWeatherExist done" />
     <MESSAGE value="Tablas creadas" />
     <MESSAGE value="base de datos done" />
     <MESSAGE value="Api key personal" />
@@ -410,7 +417,8 @@
     <MESSAGE value="model Hotel done" />
     <MESSAGE value="module hotel-provideer done" />
     <MESSAGE value="data lake corrected and done properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="data lake corrected and done properly" />
+    <MESSAGE value="controller corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="controller corrected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

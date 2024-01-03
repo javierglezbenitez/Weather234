@@ -21,11 +21,11 @@ public class WeatherController{
     public void execute(){
         Location parís = new Location("París", 48.8566, 2.3522);
         Location dubai = new Location("Dubai", 25.2769, 55.2963);
-        Location españa = new Location("España", 40.4168, 3.7038);
-        Location tailandia = new Location("Tailandia", 15.8700, 100.9925);
-        Location nuevaYork = new Location("Nueva York", 40.7128, 74.0060);
+        Location españa = new Location("España", 40.41, -3.70);
+        Location tailandia = new Location("Tailandia", 13.7, 100.5);
+        Location nuevaYork = new Location("Nueva York", 40.7128, -74.0060);
         Location amsterdam = new Location("Amsterdam", 52.3676, 4.9041);
-        Location nairobi = new Location("Nairobi", 1.2921, 36.8219);
+        Location nairobi = new Location("Nairobi", -1.2864, 36.8172);
         Location milan = new Location("Milan", 45.4642, 9.1900);
 
         List<Location> locations = List.of(parís, dubai, españa, tailandia, nuevaYork, amsterdam, nairobi, milan);
