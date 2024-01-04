@@ -1,5 +1,5 @@
 package dacd.gonzalez;
 
 public interface Receiver {
-     void receiveMessage(Storer storer);
+     void receiveMessage(WeatherStorer weatherStorer, HotelStorer hotelStorer);
 }
