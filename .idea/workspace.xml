@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="starting Vacation">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="base de datos corregida">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datalake-Builder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java/dacd/gonzalez/BrokerReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/BrokerReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java/dacd/gonzalez/HotelDatamart.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/HotelDatamart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java/dacd/gonzalez/HotelStorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/HotelStorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java/dacd/gonzalez/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java/dacd/gonzalez/VacationMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/VacationMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java/dacd/gonzalez/WeatherDatamart.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/WeatherDatamart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java/dacd/gonzalez/WeatherStorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/WeatherStorer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/MapHotelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/MapHotelProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/HotelDatamart.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/HotelDatamart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/WeatherDatamart.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/WeatherDatamart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,9 +147,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.VacationMain" />
+        <item itemvalue="Application.HotelMain" />
         <item itemvalue="Application.PredictionMain" />
         <item itemvalue="Application.EventMain" />
-        <item itemvalue="Application.HotelMain" />
       </list>
     </recent_temporary>
   </component>
@@ -439,7 +426,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704285364831</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="base de datos corregida">
+      <option name="closed" value="true" />
+      <created>1704477686224</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1704477686224</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -454,7 +449,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Api key personal" />
     <MESSAGE value="Readme.md done" />
     <MESSAGE value=" Practice Done" />
     <MESSAGE value="Project Finished" />
@@ -479,7 +473,8 @@
     <MESSAGE value="controller corrected" />
     <MESSAGE value="ready to make the next modules" />
     <MESSAGE value="starting Vacation" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting Vacation" />
+    <MESSAGE value="base de datos corregida" />
+    <option name="LAST_COMMIT_MESSAGE" value="base de datos corregida" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
