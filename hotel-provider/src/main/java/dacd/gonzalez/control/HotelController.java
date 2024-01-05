@@ -32,11 +32,11 @@ public class HotelController {
         String checkOut = localDate.plusDays(1).format(DateTimeFormatter.ISO_DATE);
 
 
-        Location dubay = new Location(checkIn, checkOut, "g295424-d20326652", "Centara Mirage Beach Resort Dubai", "Dubay");
+        Location dubay = new Location(checkIn, checkOut, "g295424-d20326652", "Centara Mirage Beach Resort Dubai", "Dubai");
         Location spain = new Location(checkIn, checkOut, "g187497-d24119358", "Ramblas Hotel", "Madrid");
-        Location thailand = new Location(checkIn, checkOut, "g293916-d1509981", "Marriott Executive Apartments", "Bangkok");
+        Location thailand = new Location(checkIn, checkOut, "g293916-d1509981", "Marriott Executive Apartments", "Bang Kho Laem");
         Location paris = new Location(checkIn, checkOut, "g187147-d2041918", "Mandarin Oriental Paris", "Paris");
-        Location newYorkCity = new Location(checkIn, checkOut, "g60763-d8501479", "Mint House at 70 Pine", "New York City");
+        Location newYorkCity = new Location(checkIn, checkOut, "g60763-d8501479", "Mint House at 70 Pine", "new_york");
         Location amsterdam = new Location(checkIn, checkOut, "g188590-d5555141", "Waldorf Astoria Amsterdam", "Amsterdam");
         Location nairobi = new Location(checkIn, checkOut, "g294207-d4091780", "Villa Rosa Kempinski", "Nairobi");
         Location milan = new Location(checkIn, checkOut, "g187849-d237325", "Lancaster Hotel", "Milan");

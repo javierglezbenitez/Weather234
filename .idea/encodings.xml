@@ -3,10 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Business-unit/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Business-unit/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Datalake-Builder/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Datalake-Builder/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Vacation-Bussiness-unit/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/datalake-builder/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/datalake-builder/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/event-store-builder/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/event-store-builder/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hotel-provider/src/main/java" charset="UTF-8" />
@@ -17,5 +17,7 @@
     <file url="file://$PROJECT_DIR$/prediction-provider/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vacation-business-unit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vacation-business-unit/src/main/resources" charset="UTF-8" />
   </component>
 </project>

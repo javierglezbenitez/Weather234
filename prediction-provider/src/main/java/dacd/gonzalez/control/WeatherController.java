@@ -21,7 +21,7 @@ public class WeatherController{
     public void execute(){
         Location parís = new Location("París", 48.8566, 2.3522);
         Location dubai = new Location("Dubai", 25.2769, 55.2963);
-        Location españa = new Location("España", 40.41, -3.70);
+        Location españa = new Location("Madrid", 40.41, -3.70);
         Location tailandia = new Location("Tailandia", 13.7, 100.5);
         Location nuevaYork = new Location("Nueva York", 40.7128, -74.0060);
         Location amsterdam = new Location("Amsterdam", 52.3676, 4.9041);

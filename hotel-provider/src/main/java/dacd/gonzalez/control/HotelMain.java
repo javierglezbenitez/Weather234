@@ -13,7 +13,7 @@ public class HotelMain {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                HotelProvider hotelProvider = new MapHotelProvider();
+                HotelProvider hotelProvider =  new MapHotelProvider();
                 HotelStore hotelStore = new JmsHotelStore(args[0], topicName);
                 HotelController hotelController = new HotelController(hotelProvider,hotelStore);
                 hotelController.execute();
