@@ -1,4 +1,4 @@
-package dacd.gonzalez;
+package dacd.gonzalez.Controller;
 
 public interface Receiver {
      void receiveMessage(Storer storer);

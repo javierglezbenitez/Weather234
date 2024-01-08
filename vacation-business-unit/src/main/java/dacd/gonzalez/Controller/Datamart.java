@@ -1,4 +1,4 @@
-package dacd.gonzalez;
+package dacd.gonzalez.Controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -19,7 +19,7 @@ public class Datamart implements Storer {
     }
 
     @Override
-    public void storeWeather(String event) {
+    public void WeatherStore(String event) {
         try {
             JsonObject jsonObject = new Gson().fromJson(event, JsonObject.class);
             JsonObject location = jsonObject.getAsJsonObject("location");
@@ -115,7 +115,7 @@ public class Datamart implements Storer {
 
 
     @Override
-    public void storeHotel(String event) {
+    public void HotelStore(String event) {
         try {
             JsonObject jsonObject = new Gson().fromJson(event, JsonObject.class);
             JsonArray ratesArray = jsonObject.getAsJsonArray("rates");

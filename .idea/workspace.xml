@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="ready to start User interface">
-      <change afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Datamart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Storer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/UserInterface.java" afterDir="false" />
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="interface user started">
+      <change afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Model/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Model/CommandBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datalake-Builder/src/main/java/dacd/gonzalez/FileStateEventBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/src/main/java/dacd/gonzalez/FileStateEventBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/prediction-provider/src/main/java/dacd/gonzalez/control/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/BrokerReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/BrokerReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/HotelDatamart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/HotelStorer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Receiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/BrokerReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Controller/BrokerReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Datamart.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Controller/Datamart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Controller/Receiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Storer.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Controller/Storer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/View/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/VacationMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/VacationMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/WeatherDatamart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/WeatherStorer.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -77,7 +73,7 @@
       <recent name="C:\Users\cgsos\Weather\prediction-provider\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UserInterface">
+  <component name="RunManager" selected="Application.HotelMain">
     <configuration name="EventMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.EventMain" />
       <module name="datalake-builder" />
@@ -121,11 +117,11 @@
       </method>
     </configuration>
     <configuration name="UserInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.UserInterface" />
+      <option name="MAIN_CLASS_NAME" value="dacd.gonzalez.View.UserInterface" />
       <module name="vacation-business-unit" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dacd.gonzalez.*" />
+          <option name="PATTERN" value="dacd.gonzalez.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,7 +135,7 @@
       <option name="PROGRAM_PARAMETERS" value="tcp://LAPTOP-93SSDTGR:61616 &quot;jdbc:sqlite:$PROJECT_DIR$/../Downloads/Bases de datos/datamart.db&quot;" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dacd.gonzalez.*" />
+          <option name="PATTERN" value="dacd.gonzalez.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,10 +152,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserInterface" />
-        <item itemvalue="Application.VacationMain" />
-        <item itemvalue="Application.PredictionMain" />
         <item itemvalue="Application.HotelMain" />
+        <item itemvalue="Application.PredictionMain" />
+        <item itemvalue="Application.VacationMain" />
+        <item itemvalue="Application.UserInterface" />
         <item itemvalue="Application.EventMain" />
       </list>
     </recent_temporary>
@@ -453,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704494770340</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="interface user started">
+      <option name="closed" value="true" />
+      <created>1704741183711</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1704741183711</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -468,7 +472,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" Practice Done" />
     <MESSAGE value="Project Finished" />
     <MESSAGE value="JmsWeatherStore done" />
     <MESSAGE value="Weather Object send" />
@@ -493,7 +496,8 @@
     <MESSAGE value="starting Vacation" />
     <MESSAGE value="base de datos corregida" />
     <MESSAGE value="ready to start User interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="ready to start User interface" />
+    <MESSAGE value="interface user started" />
+    <option name="LAST_COMMIT_MESSAGE" value="interface user started" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

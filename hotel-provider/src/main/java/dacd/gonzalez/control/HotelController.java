@@ -14,7 +14,6 @@ import java.util.List;
 public class HotelController {
     private HotelProvider hotelProvider;
     private HotelStore hotelStore;
-
     public HotelController(HotelProvider hotelProvider, HotelStore hotelStore) {
         this.hotelProvider = hotelProvider;
         this.hotelStore = hotelStore;
@@ -34,7 +33,6 @@ public class HotelController {
             String checkIn = localDate.format(DateTimeFormatter.ISO_DATE);
             String checkOut = localDate.plusDays(1).format(DateTimeFormatter.ISO_DATE);
 
-
             Location dubay = new Location(checkIn, checkOut, "g295424-d20326652", "Centara Mirage Beach Resort Dubai", "Dubai");
             Location spain = new Location(checkIn, checkOut, "g187497-d24119358", "Ramblas Hotel", "Madrid");
             Location thailand = new Location(checkIn, checkOut, "g293916-d1509981", "Marriott Executive Apartments", "Bang Kho Laem");
@@ -43,8 +41,6 @@ public class HotelController {
             Location amsterdam = new Location(checkIn, checkOut, "g188590-d5555141", "Waldorf Astoria Amsterdam", "Amsterdam");
             Location nairobi = new Location(checkIn, checkOut, "g294207-d4091780", "Villa Rosa Kempinski", "Nairobi");
             Location milan = new Location(checkIn, checkOut, "g187849-d237325", "Lancaster Hotel", "Milan");
-
-
 
             locations.add(dubay);
             locations.add(spain);
@@ -55,9 +51,7 @@ public class HotelController {
             locations.add(nairobi);
             locations.add(milan);
 
-
             localDate = localDate.plusDays(1);
-
 
         }
         ArrayList<Hotel> hotels = new ArrayList<>();
@@ -71,7 +65,6 @@ public class HotelController {
         }
         return hotels;
     }
-
     public  void callStored( List<Location> locations) {
         for (Location location : locations) {
             hotelStore.send(hotelProvider.getHotel(location));
