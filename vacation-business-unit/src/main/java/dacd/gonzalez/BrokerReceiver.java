@@ -23,7 +23,7 @@ public class BrokerReceiver implements  Receiver {
     }
 
     @Override
-    public void receiveMessage(WeatherStorer weatherStorer, HotelStorer hotelStorer) {
+    public void receiveMessage(Storer storer) {
         try {
             Topic destination = session.createTopic(HotelTopicName);
 
@@ -32,7 +32,7 @@ public class BrokerReceiver implements  Receiver {
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof TextMessage) {
                     try {
-                        hotelStorer.storeHotel(((TextMessage) message).getText(), HotelTopicName);
+                        storer.storeHotel(((TextMessage) message).getText());
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
@@ -50,7 +50,7 @@ public class BrokerReceiver implements  Receiver {
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof TextMessage) {
                     try {
-                        weatherStorer.storeWeather(((TextMessage) message).getText(), WeatherTopicName);
+                        storer.storeWeather(((TextMessage) message).getText());
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
