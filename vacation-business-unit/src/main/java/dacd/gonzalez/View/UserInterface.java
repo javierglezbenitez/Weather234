@@ -1,8 +1,7 @@
 package dacd.gonzalez.View;
 
-import dacd.gonzalez.Model.Command;
+import dacd.gonzalez.Model.CommandBuilder;
 
-import java.sql.*;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -12,15 +11,17 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class UserInterface {
-    public Command command;
+    public CommandBuilder commandBuilder;
 
-    public UserInterface(Command command) {
-        this.command = command;
+    public UserInterface(CommandBuilder commandBuilder) {
+        this.commandBuilder = commandBuilder;
     }
 
     public void execute() {
-        System.out.println("Welcome to the Reservation System!");
-
+        commandBuilder = new CommandBuilder();
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("                            We are TwinsCompany\n" +
+                "                  Enjoy your best vacation to the fullest\n");
         LocalDate checkInWeather = LocalDate.now();
         LocalTime currentTime = LocalTime.now();
 
@@ -28,68 +29,68 @@ public class UserInterface {
             checkInWeather = checkInWeather.plusDays(1);
         }
 
-        String checkinWeather = getFormattedDate(checkInWeather);
+        Instant checkInWeatherInstant = checkInWeather.atStartOfDay(ZoneId.systemDefault()).toInstant();
 
+        String chosenCountry = chosenCountry();
+        String checkOutDate = chooseReservationDate( checkInWeatherInstant);
+
+        String checkinWeather = formatInstantAsDate(checkInWeatherInstant);
         // Lógica para obtener un check-in del día siguiente y sumar un día al check-out
 
 
-        // Ask the user about the island they want to visit
-        String chosenCountry = chosenCountry();
-        String checkOutDate = chooseReservationDate("check-out");
 
         // Calculate the duration of the reservation
-        System.out.println("Chosen country: " + chosenCountry);
+        System.out.println("Chosen city: " + chosenCountry);
 
         // Get and display the average meteorological data for the reservation period
-        command.displayAverageWeatherData(chosenCountry, checkinWeather, checkOutDate);
+        commandBuilder.displayAverageWeatherData(chosenCountry, checkinWeather, checkOutDate);
 
-        command.recomendarHoteles(chosenCountry);
+        commandBuilder.recomendarHoteles(chosenCountry, checkinWeather, checkOutDate);
 
-        // Display the main menu or perform other actions as needed
-        // ...
+        System.out.println("Reservation done Correctly\n"  );
+        System.out.println("                            Enjoy your vacation. See you next 😉");
+        System.out.println("-----------------------------------------------------------------------------------------");
     }
 
 
 
 
 
-    private static String chooseReservationDate(String type) {
+    private  String chooseReservationDate( Instant checkInWeather) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Select the " + type + " date:");
-        System.out.println("1. In 1 day");
-        System.out.println("2. In 2 days");
-        System.out.println("3. In 3 days");
-        System.out.println("4. In 4 days");
+        System.out.println("How many days yo want to stay?: " );
+        System.out.println("1.  1 day");
+        System.out.println("2.  2 days");
+        System.out.println("3.  3 days");
+        System.out.println("4.  4 days");
 
         int option = getUserOption();
 
         Instant reservationDate;
         switch (option) {
-
             case 1:
-                reservationDate = Instant.now().plus(1, ChronoUnit.DAYS);
+                reservationDate = checkInWeather.plus(1, ChronoUnit.DAYS);
                 break;
             case 2:
-                reservationDate = Instant.now().plus(2, ChronoUnit.DAYS);
+                reservationDate = checkInWeather.plus(2, ChronoUnit.DAYS);
                 break;
             case 3:
-                reservationDate = Instant.now().plus(3, ChronoUnit.DAYS);
+                reservationDate = checkInWeather.plus(3, ChronoUnit.DAYS);
                 break;
             case 4:
-                reservationDate = Instant.now().plus(4, ChronoUnit.DAYS);
+                reservationDate = checkInWeather.plus(4, ChronoUnit.DAYS);
                 break;
             default:
-                System.out.println("Invalid option. Selecting today by default.");
-                reservationDate = Instant.now();
+                System.out.println("Invalid option. Today is selected by default.");
+                reservationDate = checkInWeather;
         }
 
         String formattedDate = formatInstantAsDate(reservationDate);
-        System.out.println(type + " date selected: " + formattedDate);
+        System.out.println("CheckOut selected: " + formattedDate);
 
         return formattedDate;
     }
-
 
     private static int getUserOption() {
         System.out.print("Enter the option number: ");
@@ -100,15 +101,15 @@ public class UserInterface {
     private static String chosenCountry() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Select the country you want to visit:");
+        System.out.println("Select the city you want to visit:");
         System.out.println("1. Madrid");
-        System.out.println("2. Barcelona");
-        System.out.println("3. Sevilla");
-        System.out.println("4. Valencia");
-        System.out.println("5. Vigo");
-        System.out.println("6. Cádiz");
-        System.out.println("7. Pamplona");
-        System.out.println("8. Málaga");
+        System.out.println("2. Dubai");
+        System.out.println("3. Paris");
+        System.out.println("4. Bang Kho Laem");
+        System.out.println("5. New York");
+        System.out.println("6. Amsterdam");
+        System.out.println("7. Nairobi");
+        System.out.println("8. Milan");
 
         int option = getUserOption();
 
@@ -116,30 +117,27 @@ public class UserInterface {
             case 1:
                 return "Madrid";
             case 2:
-                return "Barcelona";
+                return "Dubai";
             case 3:
-                return "Seville";
+                return "Paris";
             case 4:
-                return "Valencia";
+                return "Bang Kho Laem";
             case 5:
-                return "Vico";
+                return "New York";
             case 6:
-                return "Cadiz";
+                return "Amsterdam";
             case 7:
-                return "Pamplona";
+                return "Nairobi";
             case 8:
-                return "Málaga";
+                return "Milan";
             default:
-                System.out.println("Invalid option. Selecting Madrid by default.");
-                return "Madrid";
-        }
+                System.out.println("Error. Any city has been selected.");
+        }return null;
     }
 
     private static String formatInstantAsDate(Instant instant) {
         LocalDate localDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
         return localDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
-    private static String getFormattedDate(LocalDate instant) {
-        return instant.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-    }
+
 }

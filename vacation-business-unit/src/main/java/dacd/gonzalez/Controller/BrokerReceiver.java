@@ -7,6 +7,9 @@ import javax.jms.*;
 public class BrokerReceiver implements Receiver {
     private final Connection connection;
     private final Session session;
+
+    private static String client = "datamart";
+
     private final String HotelTopicName = "prediction.Hotel";
     private final String WeatherTopicName = "prediction.Weather";
     private final String url;
@@ -16,6 +19,7 @@ public class BrokerReceiver implements Receiver {
         this.url = url;
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
         connection = connectionFactory.createConnection();
+        connection.setClientID(client);
         connection.start();
         session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
@@ -25,7 +29,7 @@ public class BrokerReceiver implements Receiver {
         try {
             Topic destination = session.createTopic(HotelTopicName);
 
-            MessageConsumer durableSubscriber = session.createConsumer(destination);
+            MessageConsumer durableSubscriber = session.createDurableSubscriber(destination ,client + HotelTopicName);
 
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof TextMessage) {
@@ -43,7 +47,7 @@ public class BrokerReceiver implements Receiver {
         try {
             Topic destination = session.createTopic(WeatherTopicName);
 
-            MessageConsumer durableSubscriber = session.createConsumer(destination);
+            MessageConsumer durableSubscriber = session.createDurableSubscriber(destination, client + WeatherTopicName);
 
             durableSubscriber.setMessageListener(message -> {
                 if (message instanceof TextMessage) {

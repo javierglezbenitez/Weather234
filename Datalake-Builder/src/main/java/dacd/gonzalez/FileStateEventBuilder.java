@@ -25,7 +25,7 @@ public class FileStateEventBuilder implements Listener {
         LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.parse(ts), ZoneId.systemDefault());
         String date = dateTime.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 
-        String path =   directory + File.separator + "datalakess" + File.separator + "eventstore" +   File.separator + topicName + File.separator + ss;
+        String path =   directory + File.separator + "datalakes" + File.separator + "eventstore" +   File.separator + topicName + File.separator + ss;
         File topicDirectory = new File(path);
 
         if (topicDirectory.mkdirs()) {

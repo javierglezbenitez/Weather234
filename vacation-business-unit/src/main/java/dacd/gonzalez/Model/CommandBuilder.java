@@ -1,17 +1,17 @@
 package dacd.gonzalez.Model;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class CommandBuilder implements Command{
+public class CommandBuilder {
     private static final String URL = "jdbc:sqlite:C:/Users/cgsos/Downloads/Bases de datos/datamart.db";
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    @Override
+
     public void displayAverageWeatherData(String country, String checkInDate, String checkOutDate) {
         try (Connection connection = DriverManager.getConnection(URL)) {
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT AVG(cloud) AS avg_clouds, AVG(windSpeed) AS avg_wind, AVG(temp) AS avg_temperature, AVG(humidity) AS avg_humidity, AVG(propRain) AS avg_pop " +
+                    "SELECT AVG(clouds) AS meanclouds, AVG(windSpeed) AS meanWindspeed, AVG(temperature) AS meanTemperature, AVG(humidity) AS meanHumidity, AVG(precipitation) AS meanPrecipitations " +
                             "FROM Weather " +
                             "WHERE name = ? AND instant BETWEEN ? AND ?");
 
@@ -21,21 +21,20 @@ public class CommandBuilder implements Command{
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    String avgClouds = resultSet.getString("avg_clouds");
-                    String avgWind = resultSet.getString("avg_wind");
-                    String avgTemperature = resultSet.getString("avg_temperature");
-                    String avgHumidity = resultSet.getString("avg_humidity");
-                    String avgPop = resultSet.getString("avg_pop");
+                    double avgClouds = resultSet.getDouble("meanclouds");
+                    double avgWind = resultSet.getDouble("meanWindspeed");
+                    double avgTemperature = resultSet.getDouble("meanTemperature");
+                    double avgHumidity = resultSet.getDouble("meanHumidity");
+                    double avgPop = resultSet.getDouble("meanPrecipitations");
 
-                    // Display the average weather data to the user (you can adapt this code according to your needs)
                     System.out.println("Average weather data for " + country +
                             " during the reservation period (" + checkInDate +
                             " to " + checkOutDate + "):");
-                    System.out.println("Average Cloudiness: " + avgClouds);
-                    System.out.println("Average Wind Speed: " + avgWind);
-                    System.out.println("Average Temperature: " + avgTemperature);
-                    System.out.println("Average Humidity: " + avgHumidity);
-                    System.out.println("Average Probability of Precipitation: " + avgPop);
+                    System.out.println("Average Cloudiness: " + String.format("%.2f", avgClouds));
+                    System.out.println("Average Wind Speed: " + String.format("%.2f", avgWind));
+                    System.out.println("Average Temperature: " + String.format("%.2f", avgTemperature));
+                    System.out.println("Average Humidity: " + String.format("%.2f", avgHumidity));
+                    System.out.println("Average Probability of Precipitation: " + String.format("%.2f", avgPop));
                     System.out.println("----------------------------------------");
                 } else {
                     System.out.println("f");
@@ -48,36 +47,69 @@ public class CommandBuilder implements Command{
         }
     }
 
-    @Override
-    public void recomendarHoteles(String country) {
-        try (Connection connection = DriverManager.getConnection(URL);
-             PreparedStatement statement = connection.prepareStatement(
-                     "SELECT DISTINCT rate, tax, checkIn, checkOut, hotelName, rateName FROM Hotel WHERE country = ? ORDER BY rate DESC LIMIT 5")) {
+    public void recomendarHoteles(String country, String checkIn, String checkOut) {
+        try {
+            LocalDate checkInDate = LocalDate.parse(checkIn);
+            LocalDate checkOutDate = LocalDate.parse(checkOut);
 
-            statement.setString(1, country);
+            // Calcular la diferencia en días
+            int dias = (int) checkInDate.until(checkOutDate).getDays();
 
-            try (ResultSet resultSet = statement.executeQuery()) {
-                System.out.println("Hoteles recomendados en " + country + ":");
+            // Resto de tu código...
+            try (Connection connection = DriverManager.getConnection(URL);
+                 PreparedStatement statement = connection.prepareStatement(
+                         "SELECT DISTINCT rate, tax, hotelName, rateName "
+                                 + "FROM Hotel "
+                                 + "WHERE location = ? AND checkIn = ?")) {
+
+                statement.setString(1, country);
+                statement.setString(2, checkIn);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                int mejorPrecio = Integer.MAX_VALUE;  // Inicializar con el máximo valor posible
+                String mejorHotel = null;
+                String mejorRateName = null;
+                int mejorRate = 0;
+                int mejorTax = 0;
+
                 while (resultSet.next()) {
-                    String rate = resultSet.getString("rate");
-                    String tax = resultSet.getString("tax");
-                    String checkIn = resultSet.getString("checkIn");
-                    String checkOut = resultSet.getString("checkOut");
+                    int rate = resultSet.getInt("rate");
+                    int tax = resultSet.getInt("tax");
                     String hotelName = resultSet.getString("hotelName");
                     String rateName = resultSet.getString("rateName");
 
-                    // Mostrar los datos del hotel recomendado al usuario
-                    System.out.println("Tarifa: " + rate);
-                    System.out.println("Impuesto: " + tax);
-                    System.out.println("Fecha de entrada: " + checkIn);
-                    System.out.println("Fecha de salida: " + checkOut);
-                    System.out.println("Nombre del hotel: " + hotelName);
-                    System.out.println("Nombre de la página Web: " + rateName);
+                    // Calcular el precio total considerando la duración de la estancia y el impuesto
+                    int precioTotal = (rate * dias) + tax;
+
+                    // Comparar y actualizar el mejor precio y el mejor hotel
+                    if (precioTotal < mejorPrecio) {
+                        mejorPrecio = precioTotal;
+                        mejorHotel = hotelName;
+                        mejorRateName = rateName;
+                        mejorRate = rate;
+                        mejorTax = tax;
+
+                    }
+                }
+
+                if (mejorHotel != null) {
+                    System.out.println("Recommended hotel in " + country + ":");
+                    System.out.println("Price per night: " + mejorRate);
+                    System.out.println("Taxes for the stay: " + mejorTax);
+                    System.out.println("Total price: " + mejorPrecio);
+                    System.out.println("CheckIn: " + checkIn);
+                    System.out.println("CheckOut: " + checkOut);
+                    System.out.println("Number of days for stay: " + dias);
+                    System.out.println("Hotel name: " + mejorHotel);
+                    System.out.println("Web page: " + mejorRateName);
                     System.out.println("----------------------------------------");
+                } else {
+                    System.out.println("There are no hotels available for the specified date.");
                 }
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | java.time.format.DateTimeParseException e) {
             e.printStackTrace();
         }
     }

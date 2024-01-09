@@ -21,19 +21,23 @@ public class Datamart implements Storer {
     @Override
     public void WeatherStore(String event) {
         try {
-            JsonObject jsonObject = new Gson().fromJson(event, JsonObject.class);
+            Gson gson = new Gson();
+            JsonObject jsonObject = gson.fromJson(event, JsonObject.class);
+
+            JsonObject locationObject = jsonObject.getAsJsonObject("location");
+            String name = locationObject.get("name").getAsString();
+
             JsonObject location = jsonObject.getAsJsonObject("location");
-            String name = location.getAsJsonPrimitive("name").getAsString();
             String timestamp = jsonObject.getAsJsonPrimitive("ts").getAsString();
             String ss = jsonObject.getAsJsonPrimitive("ss").getAsString();
-            String lat = location.getAsJsonPrimitive("lat").getAsString();
-            String lon = location.getAsJsonPrimitive("lon").getAsString();
-            String temperature = jsonObject.getAsJsonPrimitive("temperature").getAsString();
-            String humidity = jsonObject.getAsJsonPrimitive("humidity").getAsString();
-            String clouds = jsonObject.getAsJsonPrimitive("clouds").getAsString();
-            String windSpeed = jsonObject.getAsJsonPrimitive("windSpeed").getAsString();
-            String precipitation = jsonObject.getAsJsonPrimitive("precipitation").getAsString();
-            String instant = jsonObject.getAsJsonPrimitive("instant").getAsString();
+            double lat = location.get("lat").getAsDouble();
+            double lon = location.get("lon").getAsDouble();
+            double temperature = jsonObject.get("temperature").getAsDouble();
+            int humidity = jsonObject.get("humidity").getAsInt();
+            int clouds = jsonObject.get("clouds").getAsInt();
+            double windSpeed = jsonObject.get("windSpeed").getAsDouble();
+            double precipitation = jsonObject.get("precipitation").getAsDouble();
+            String instant = jsonObject.get("instant").getAsString();
 
 
 
@@ -56,16 +60,16 @@ public class Datamart implements Storer {
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     try (PreparedStatement insertStatement = connection.prepareStatement(insertWeatherSQL)) {
                         insertStatement.setString(1, name);
-                        insertStatement.setString(2, clouds);
-                        insertStatement.setString(3, windSpeed);
-                        insertStatement.setString(4, temperature);
-                        insertStatement.setString(5, humidity);
+                        insertStatement.setInt(2, clouds);
+                        insertStatement.setDouble(3, windSpeed);
+                        insertStatement.setDouble(4, temperature);
+                        insertStatement.setInt(5, humidity);
                         insertStatement.setString(6, instant);
-                        insertStatement.setString(7, precipitation);
+                        insertStatement.setDouble(7, precipitation);
                         insertStatement.setString(8, ts);
                         insertStatement.setString(9, ss);
-                        insertStatement.setString(10, lat);
-                        insertStatement.setString(11, lon);
+                        insertStatement.setDouble(10, lat);
+                        insertStatement.setDouble(11, lon);
 
                         insertStatement.executeUpdate();
                     }
@@ -117,7 +121,9 @@ public class Datamart implements Storer {
     @Override
     public void HotelStore(String event) {
         try {
-            JsonObject jsonObject = new Gson().fromJson(event, JsonObject.class);
+            Gson gson = new Gson();
+
+            JsonObject jsonObject = gson.fromJson(event, JsonObject.class);
             JsonArray ratesArray = jsonObject.getAsJsonArray("rates");
             JsonObject dateObject = jsonObject.getAsJsonObject("date");
             String location = dateObject.getAsJsonPrimitive("location").getAsString();
@@ -149,8 +155,8 @@ public class Datamart implements Storer {
                         JsonObject rateObject = rateElement.getAsJsonObject();
                         String code = rateObject.getAsJsonPrimitive("code").getAsString();
                         String rateName = rateObject.getAsJsonPrimitive("rateName").getAsString();
-                        String rateValue = rateObject.getAsJsonPrimitive("rate").getAsString();
-                        String taxValue = rateObject.getAsJsonPrimitive("tax").getAsString();
+                        int rateValue = rateObject.get("rate").getAsInt();
+                        int taxValue = rateObject.get("tax").getAsInt();
 
                         String insertRateSQL = "INSERT INTO Hotel (location, hotelName, hotelKey, checkIn, checkOut, ss, ts, code, rateName, rate, tax) " +
                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -164,8 +170,8 @@ public class Datamart implements Storer {
                             insertStatement.setString(7, ts);
                             insertStatement.setString(8, code);
                             insertStatement.setString(9, rateName);
-                            insertStatement.setString(10, rateValue);
-                            insertStatement.setString(11, taxValue);
+                            insertStatement.setInt(10, rateValue);
+                            insertStatement.setInt(11, taxValue);
 
                             insertStatement.executeUpdate();
                         }
