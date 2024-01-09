@@ -4,6 +4,16 @@ Curso 2023-2024
 Grado en Ciencia e Ingeniería de Datos  
 Universidad Las Palmas de Gran Canaria(ULPGC)  
 
+## Execution
+Argumentos en los 4 modulos:
+
+HotelMain: arg[0] tcp://LAPTOP-93SSDTGR:61616(url de mi ordenador al broker)
+
+WeatherMain: arg[0] 51cb3b621914382d96a450c0f3451582(apikey), arg[1] tcp://LAPTOP-93SSDTGR:61616
+
+DatalakeMain: arg[0] tcp://LAPTOP-93SSDTGR:61616, arg[1] "Write your directory"(usuarion introduce el directorio)
+
+VacationMain: arg[0] tcp://LAPTOP-93SSDTGR:61616 , arg[1] jdbc:sqlite:C:/Users/cgsos/Downloads/Bases de datos/datamart.db (ruta para guardar mi base de datos)
 
 ## _Functionality_
 The project  collects data about weather and hotels, both in specific places, from two external APIs(Open Weather Map) and (Xotelo), this datas are transmited  to message broker(Active mq). The architecture consists of 4 main parts(modules): two parts(hotel-provider and prediction-provider) are to connect with data sources via API calls every six hours. Another module(datalake-builder) is to receive the data that is sent to the broker, from the two topics, and stored in a datalake, giving rise to a data history.is responsible for obtaining and sending data, while the second("event-store-builder") manages the reception and structured storage of the information. The last module (vacation-bussines-unit) is responsible for also receiving the data from the two topics, it is stored in a datamart, this means that every time it receives new data the database is updated, eliminating the data ancient. Finally, in this module the user interface (CLI) is created, a type of interface that allows communication between user and machine.
