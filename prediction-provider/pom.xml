@@ -43,7 +43,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>dacd.gonzalez.control.PredictionMain</mainClass>
+                            <mainClass>dacd.gonzalez.control.WeatherMain</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
                         </manifest>

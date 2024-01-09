@@ -8,7 +8,7 @@ public class BrokerReceiver implements Receiver {
     private final Connection connection;
     private final Session session;
 
-    private static String client = "datamart";
+    private static String client = "Datamart";
 
     private final String HotelTopicName = "prediction.Hotel";
     private final String WeatherTopicName = "prediction.Weather";

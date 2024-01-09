@@ -13,19 +13,4 @@ public class Rate {
         this.tax = tax;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public String getRateName() {
-        return rateName;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public int getTax() {
-        return tax;
-    }
 }

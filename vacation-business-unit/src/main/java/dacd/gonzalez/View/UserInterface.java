@@ -32,20 +32,16 @@ public class UserInterface {
         Instant checkInWeatherInstant = checkInWeather.atStartOfDay(ZoneId.systemDefault()).toInstant();
 
         String chosenCountry = chosenCountry();
-        String checkOutDate = chooseReservationDate( checkInWeatherInstant);
+        String checkOut = chooseReservationDate( checkInWeatherInstant);
 
-        String checkinWeather = formatInstantAsDate(checkInWeatherInstant);
-        // Lógica para obtener un check-in del día siguiente y sumar un día al check-out
+        String checkIn = formatInstantAsDate(checkInWeatherInstant);
 
-
-
-        // Calculate the duration of the reservation
         System.out.println("Chosen city: " + chosenCountry);
+        System.out.println("----------------------------------------------");
 
-        // Get and display the average meteorological data for the reservation period
-        commandBuilder.displayAverageWeatherData(chosenCountry, checkinWeather, checkOutDate);
+        commandBuilder.displayAverageWeatherData(chosenCountry, checkIn, checkOut);
 
-        commandBuilder.recomendarHoteles(chosenCountry, checkinWeather, checkOutDate);
+        commandBuilder.recommendedHotels(chosenCountry, checkIn, checkOut);
 
         System.out.println("Reservation done Correctly\n"  );
         System.out.println("                            Enjoy your vacation. See you next 😉");
@@ -59,7 +55,7 @@ public class UserInterface {
     private  String chooseReservationDate( Instant checkInWeather) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("How many days yo want to stay?: " );
+        System.out.println("How many days you want to stay?: " );
         System.out.println("1.  1 day");
         System.out.println("2.  2 days");
         System.out.println("3.  3 days");

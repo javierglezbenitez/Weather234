@@ -2,7 +2,6 @@ package dacd.gonzalez.Model;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class CommandBuilder {
     private static final String URL = "jdbc:sqlite:C:/Users/cgsos/Downloads/Bases de datos/datamart.db";
@@ -30,11 +29,11 @@ public class CommandBuilder {
                     System.out.println("Average weather data for " + country +
                             " during the reservation period (" + checkInDate +
                             " to " + checkOutDate + "):");
-                    System.out.println("Average Cloudiness: " + String.format("%.2f", avgClouds));
-                    System.out.println("Average Wind Speed: " + String.format("%.2f", avgWind));
-                    System.out.println("Average Temperature: " + String.format("%.2f", avgTemperature));
-                    System.out.println("Average Humidity: " + String.format("%.2f", avgHumidity));
-                    System.out.println("Average Probability of Precipitation: " + String.format("%.2f", avgPop));
+                    System.out.println("-Average Cloudiness: " + String.format("%.2f", avgClouds));
+                    System.out.println("-Average Wind Speed: " + String.format("%.2f", avgWind));
+                    System.out.println("-Average Temperature: " + String.format("%.2f", avgTemperature));
+                    System.out.println("-Average Humidity: " + String.format("%.2f", avgHumidity));
+                    System.out.println("-Average Probability of Precipitation: " + String.format("%.2f", avgPop));
                     System.out.println("----------------------------------------");
                 } else {
                     System.out.println("f");
@@ -47,15 +46,13 @@ public class CommandBuilder {
         }
     }
 
-    public void recomendarHoteles(String country, String checkIn, String checkOut) {
+    public void recommendedHotels(String country, String checkIn, String checkOut) {
         try {
             LocalDate checkInDate = LocalDate.parse(checkIn);
             LocalDate checkOutDate = LocalDate.parse(checkOut);
 
-            // Calcular la diferencia en días
             int dias = (int) checkInDate.until(checkOutDate).getDays();
 
-            // Resto de tu código...
             try (Connection connection = DriverManager.getConnection(URL);
                  PreparedStatement statement = connection.prepareStatement(
                          "SELECT DISTINCT rate, tax, hotelName, rateName "
@@ -67,7 +64,7 @@ public class CommandBuilder {
 
                 ResultSet resultSet = statement.executeQuery();
 
-                int mejorPrecio = Integer.MAX_VALUE;  // Inicializar con el máximo valor posible
+                int mejorPrecio = Integer.MAX_VALUE;
                 String mejorHotel = null;
                 String mejorRateName = null;
                 int mejorRate = 0;
@@ -79,10 +76,8 @@ public class CommandBuilder {
                     String hotelName = resultSet.getString("hotelName");
                     String rateName = resultSet.getString("rateName");
 
-                    // Calcular el precio total considerando la duración de la estancia y el impuesto
                     int precioTotal = (rate * dias) + tax;
 
-                    // Comparar y actualizar el mejor precio y el mejor hotel
                     if (precioTotal < mejorPrecio) {
                         mejorPrecio = precioTotal;
                         mejorHotel = hotelName;

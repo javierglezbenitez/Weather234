@@ -52,7 +52,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>dacd.gonzalez.EventMain</mainClass>
+                            <mainClass>dacd.gonzalez.DatalakeMain</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
                         </manifest>

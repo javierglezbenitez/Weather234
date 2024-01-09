@@ -18,7 +18,7 @@ public class VacationMain {
 
         Thread secondPartThread = new Thread(() -> {
             try {
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(8);
 
                 CommandBuilder commandBuilder = new CommandBuilder();
                 UserInterface userInterface = new UserInterface(commandBuilder);

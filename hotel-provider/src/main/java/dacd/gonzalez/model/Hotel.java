@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Hotel {
 
-    ArrayList<Rate> rates;
+    private final ArrayList<Rate> rates;
 
     private final Location date;
 
     private  final String ss;
-    private Instant ts;
+    private final Instant ts;
 
 
 
@@ -21,14 +21,5 @@ public class Hotel {
         this.ts = Instant.now();
     }
 
-
-
-
-    public String getSs() {
-        return ss;
-    }
-    public Location getDate() {
-        return date;
-    }
 }
 

@@ -3,7 +3,7 @@ package dacd.gonzalez.control;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PredictionMain {
+public class WeatherMain {
     private static String topicName = "prediction.Weather";
 
     public static void main(String[] args) {

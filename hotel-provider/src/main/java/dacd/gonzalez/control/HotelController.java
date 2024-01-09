@@ -3,12 +3,10 @@ package dacd.gonzalez.control;
 import dacd.gonzalez.model.Hotel;
 import dacd.gonzalez.model.Location;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class HotelController {
@@ -27,7 +25,7 @@ public class HotelController {
             localDate = localDate.plusDays(1);
         }
 
-        List<Location> locations = new ArrayList<>();
+        List<Location> hotelList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
 
             String checkIn = localDate.format(DateTimeFormatter.ISO_DATE);
@@ -50,38 +48,39 @@ public class HotelController {
             Location milan = new Location(checkIn, checkOut, "g187849-d237325", "Lancaster Hotel", "Milan");
             Location milan1 = new Location(checkIn, checkOut, "g187849-d194976", "Hotel Spadari Al Duomo", "Milan");
 
-            locations.add(dubay);
-            locations.add(dubay1);
-            locations.add(spain);
-            locations.add(spain1);
-            locations.add(thailand);
-            locations.add(thailand1);
-            locations.add(paris);
-            locations.add(paris2);
-            locations.add(newYorkCity);
-            locations.add(newYorkCity1);
-            locations.add(amsterdam);
-            locations.add(amsterdam1);
-            locations.add(nairobi);
-            locations.add(nairobi1);
-            locations.add(milan);
-            locations.add(milan1);
+            hotelList.add(dubay);
+            hotelList.add(dubay1);
+            hotelList.add(spain);
+            hotelList.add(spain1);
+            hotelList.add(thailand);
+            hotelList.add(thailand1);
+            hotelList.add(paris);
+            hotelList.add(paris2);
+            hotelList.add(newYorkCity);
+            hotelList.add(newYorkCity1);
+            hotelList.add(amsterdam);
+            hotelList.add(amsterdam1);
+            hotelList.add(nairobi);
+            hotelList.add(nairobi1);
+
+            hotelList.add(milan);
+            hotelList.add(milan1);
 
             localDate = localDate.plusDays(1);
 
         }
         ArrayList<Hotel> hotels = new ArrayList<>();
-        callWeatherGet(locations, hotels);
-        callStored(locations);
+        callHotelGet(hotelList, hotels);
+        send(hotelList);
     }
-    public ArrayList<Hotel> callWeatherGet( List<Location> locations, ArrayList<Hotel> hotels) {
+    public ArrayList<Hotel> callHotelGet( List<Location> locations, ArrayList<Hotel> hotels) {
         for (Location iteredLocation : locations) {
             Hotel hotel = hotelProvider.getHotel(iteredLocation);
             hotels.add(hotel);
         }
         return hotels;
     }
-    public  void callStored( List<Location> locations) {
+    public  void send( List<Location> locations) {
         for (Location location : locations) {
             hotelStore.send(hotelProvider.getHotel(location));
         }

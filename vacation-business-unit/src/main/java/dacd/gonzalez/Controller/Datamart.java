@@ -12,10 +12,10 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class Datamart implements Storer {
-    private String url;
+    private String path;
 
-    public Datamart(String url) {
-        this.url = url;
+    public Datamart(String path) {
+        this.path = path;
     }
 
     @Override
@@ -42,9 +42,9 @@ public class Datamart implements Storer {
 
 
             LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault());
-            String ts = dateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd/HH:mm"));
+            String ts = dateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd/HH"));
 
-            try (Connection connection = DriverManager.getConnection(url)) {
+            try (Connection connection = DriverManager.getConnection(path)) {
                 crearTablaWeather(connection);
 
                 connection.setAutoCommit(false);
@@ -136,10 +136,9 @@ public class Datamart implements Storer {
             String ss = jsonObject.getAsJsonPrimitive("ss").getAsString();
 
             LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault());
-            String ts = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd/HH:mm"));
+            String ts = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd/HH"));
 
-            try (Connection connection = DriverManager.getConnection(url)) {
-                // Utilize topicName with a different naming convention or suffix for the second table
+            try (Connection connection = DriverManager.getConnection(path)) {
                 crearTablaHotel(connection);
 
                 connection.setAutoCommit(false);
