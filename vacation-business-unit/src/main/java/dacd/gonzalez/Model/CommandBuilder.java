@@ -4,11 +4,14 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class CommandBuilder {
-    private static final String URL = "jdbc:sqlite:C:/Users/cgsos/Downloads/Bases de datos/datamart.db";
+    private  final String databasePath;
 
+    public CommandBuilder(String databasePath) {
+        this.databasePath = databasePath;
+    }
 
     public void displayAverageWeatherData(String country, String checkInDate, String checkOutDate) {
-        try (Connection connection = DriverManager.getConnection(URL)) {
+        try (Connection connection = DriverManager.getConnection(databasePath)) {
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT AVG(clouds) AS meanclouds, AVG(windSpeed) AS meanWindspeed, AVG(temperature) AS meanTemperature, AVG(humidity) AS meanHumidity, AVG(precipitation) AS meanPrecipitations " +
                             "FROM Weather " +
@@ -53,7 +56,7 @@ public class CommandBuilder {
 
             int dias = (int) checkInDate.until(checkOutDate).getDays();
 
-            try (Connection connection = DriverManager.getConnection(URL);
+            try (Connection connection = DriverManager.getConnection(databasePath);
                  PreparedStatement statement = connection.prepareStatement(
                          "SELECT DISTINCT rate, tax, hotelName, rateName "
                                  + "FROM Hotel "

@@ -14,32 +14,38 @@ import java.util.ArrayList;
 public class MapHotelProvider implements HotelProvider {
     @Override
     public Hotel getHotel(Location location) {
+        Hotel hotel = null;
         try {
             String apiUrl = "https://data.xotelo.com/api/rates?hotel_key=" + location.getHotelKey() +
                     "&chk_in=" + location.getCheckIn() + "&chk_out=" + location.getCheckOut();
 
-            JsonObject responseJson = new Gson().fromJson(Jsoup.connect(apiUrl).ignoreContentType(true).execute().body(), JsonObject.class);
+            String jsonString = Jsoup.connect(apiUrl).ignoreContentType(true).execute().body();
+            JsonObject responseJson = new Gson().fromJson(jsonString, JsonObject.class);
             JsonObject resultObject = responseJson.getAsJsonObject("result");
 
-            Location date1 = new Location(resultObject.getAsJsonPrimitive("chk_in").getAsString(),
-                    resultObject.getAsJsonPrimitive("chk_out").getAsString(),
-                    location.getHotelKey(), location.getName(), location.getLocation());
+            if (resultObject != null) {
+                String checkInDate = resultObject.getAsJsonPrimitive("chk_in").getAsString();
+                String checkOutDate = resultObject.getAsJsonPrimitive("chk_out").getAsString();
+                Location location1 = new Location(checkInDate, checkOutDate, location.getHotelKey(), location.getName(), location.getLocation());
 
-            JsonArray ratesObject = resultObject.getAsJsonArray("rates");
-            ArrayList<Rate> rates = new ArrayList<>();
+                JsonArray ratesArray = resultObject.getAsJsonArray("rates");
+                ArrayList<Rate> rates = new ArrayList<>();
 
-            for (JsonElement rate : ratesObject) {
-                JsonObject rateObject = rate.getAsJsonObject();
-                rates.add(new Rate(rateObject.getAsJsonPrimitive("code").getAsString(),
-                        rateObject.getAsJsonPrimitive("name").getAsString(),
-                        rateObject.getAsJsonPrimitive("rate").getAsInt(),
-                        rateObject.getAsJsonPrimitive("tax").getAsInt()));
+                for (JsonElement element : ratesArray) {
+                    JsonObject rateObject = element.getAsJsonObject();
+                    String code = rateObject.getAsJsonPrimitive("code").getAsString();
+                    String name = rateObject.getAsJsonPrimitive("name").getAsString();
+                    int rateValue = rateObject.getAsJsonPrimitive("rate").getAsInt();
+                    int tax = rateObject.getAsJsonPrimitive("tax").getAsInt();
+
+                    Rate rate = new Rate(code, name, rateValue, tax);
+                    rates.add(rate);
+                }
+                hotel = new Hotel(rates, location1);
             }
-
-            return new Hotel(rates, date1);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
+
+        }return hotel;
     }
 }

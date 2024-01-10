@@ -12,10 +12,10 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class Datamart implements Storer {
-    private String path;
+    private String databasePath;
 
-    public Datamart(String path) {
-        this.path = path;
+    public Datamart(String databasePath) {
+        this.databasePath = databasePath;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Datamart implements Storer {
             LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault());
             String ts = dateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd/HH"));
 
-            try (Connection connection = DriverManager.getConnection(path)) {
+            try (Connection connection = DriverManager.getConnection(databasePath)) {
                 crearTablaWeather(connection);
 
                 connection.setAutoCommit(false);
@@ -138,7 +138,7 @@ public class Datamart implements Storer {
             LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault());
             String ts = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd/HH"));
 
-            try (Connection connection = DriverManager.getConnection(path)) {
+            try (Connection connection = DriverManager.getConnection(databasePath)) {
                 crearTablaHotel(connection);
 
                 connection.setAutoCommit(false);

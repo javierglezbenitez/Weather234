@@ -13,12 +13,12 @@ import java.util.Scanner;
 public class UserInterface {
     public CommandBuilder commandBuilder;
 
+
     public UserInterface(CommandBuilder commandBuilder) {
         this.commandBuilder = commandBuilder;
     }
 
     public void execute() {
-        commandBuilder = new CommandBuilder();
         System.out.println("------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("                            We are TwinsCompany\n" +
                 "                  Enjoy your best vacation to the fullest\n");

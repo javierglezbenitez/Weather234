@@ -16,25 +16,15 @@ public class VacationMain {
         Storer storer = new Datamart(args[1]);
         receiver.receiveMessage(storer);
 
-        Thread secondPartThread = new Thread(() -> {
             try {
-                TimeUnit.SECONDS.sleep(8);
+                TimeUnit.SECONDS.sleep(10);
 
-                CommandBuilder commandBuilder = new CommandBuilder();
+                CommandBuilder commandBuilder = new CommandBuilder(args[1]);
                 UserInterface userInterface = new UserInterface(commandBuilder);
                 userInterface.execute();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        });
-
-        secondPartThread.start();
-
-        try {
-            secondPartThread.join();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
 }

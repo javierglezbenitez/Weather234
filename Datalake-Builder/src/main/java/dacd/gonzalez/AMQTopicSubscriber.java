@@ -9,7 +9,7 @@ import javax.jms.*;
 public class AMQTopicSubscriber implements Subscriber {
     private final String url;
     private final Connection connection;
-    private static String client = "datalake";
+    private static String client = "Datalake";
     private final Session session;
     private final String HotelTopicName = "prediction.Hotel";
     private final String WeatherTopicName = "prediction.Weather";
