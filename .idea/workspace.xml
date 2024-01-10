@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Project Finshed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datalake-Builder/src/main/java/dacd/gonzalez/AMQTopicSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/src/main/java/dacd/gonzalez/AMQTopicSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datalake-Builder/src/main/java/dacd/gonzalez/FileStateEventBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/src/main/java/dacd/gonzalez/FileStateEventBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/MapHotelProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel-provider/src/main/java/dacd/gonzalez/control/MapHotelProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Controller/Datamart.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Controller/Datamart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Model/CommandBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/Model/CommandBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/VacationMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/VacationMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/View/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/vacation-business-unit/src/main/java/dacd/gonzalez/View/UserInterface.java" afterDir="false" />
-    </list>
+    <list default="true" id="62f28d6b-1c51-4c3d-ac19-058bb23e0bc4" name="Changes" comment="Project Finshed2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -464,7 +455,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704836610671</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Project Finshed2">
+      <option name="closed" value="true" />
+      <created>1704920092223</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1704920092223</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -479,7 +478,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Message weather receive" />
     <MESSAGE value="Message List&lt;weather&gt; receive" />
     <MESSAGE value="Message List&lt;String&gt; events written" />
     <MESSAGE value="Correcion del direcotirio List weather" />
@@ -504,7 +502,8 @@
     <MESSAGE value="mvc started" />
     <MESSAGE value="project casi terminado" />
     <MESSAGE value="Project Finshed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project Finshed" />
+    <MESSAGE value="Project Finshed2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Finshed2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
