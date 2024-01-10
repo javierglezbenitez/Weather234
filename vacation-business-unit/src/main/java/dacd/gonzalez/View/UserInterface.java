@@ -89,7 +89,6 @@ public class UserInterface {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-
     private static String chosenCountry() {
         Scanner scanner = new Scanner(System.in);
 
