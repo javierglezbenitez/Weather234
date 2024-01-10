@@ -60,6 +60,3 @@ Last but not least. The project uses a lamba architecture, since it makes use of
 
 ### Vacation-bussines-unit
 ![image](https://github.com/javierglezbenitez/Weather234/assets/145259489/14b1e04d-26ae-4420-a87e-6b622baf8731)
-
-
-

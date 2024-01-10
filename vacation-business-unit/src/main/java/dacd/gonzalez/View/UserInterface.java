@@ -83,7 +83,6 @@ public class UserInterface {
 
         return formattedDate;
     }
-
     private static int getUserOption() {
         System.out.print("Enter the option number: ");
         Scanner scanner = new Scanner(System.in);
