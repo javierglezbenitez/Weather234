@@ -48,10 +48,6 @@ public class UserInterface {
         System.out.println("-----------------------------------------------------------------------------------------");
     }
 
-
-
-
-
     private  String chooseReservationDate( Instant checkInWeather) {
         Scanner scanner = new Scanner(System.in);
 
