@@ -5,15 +5,15 @@ Grado en Ciencia e Ingeniería de Datos
 Universidad Las Palmas de Gran Canaria(ULPGC)  
 
 ## Execution
-Argumentos en los 4 modulos:
+Arguments in the 4 modules(the user must enter the necessary data):
 
-HotelMain: arg[0] tcp://LAPTOP-93SSDTGR:61616(url de mi ordenador al broker)
+HotelMain: arg[0] tcp://LAPTOP-93SSDTGR:61616(user have to put url of the computer to connect to the broker)
 
-WeatherMain: arg[0] 51cb3b621914382d96a450c0f3451582(apikey), arg[1] tcp://LAPTOP-93SSDTGR:61616
+Main time: arg[0] 51cb3b621914382d96a450c0f3451582(user should put the apikey to connect to Open Weather Map), arg[1] tcp://LAPTOP-93SSDTGR:61616
 
-DatalakeMain: arg[0] tcp://LAPTOP-93SSDTGR:61616, arg[1] "Write your directory"(usuarion introduce el directorio)
+DatalakeMain: arg[0] tcp://LAPTOP-93SSDTGR:61616, arg[1] directory (user introduce the directory of the datalake)
 
-VacationMain: arg[0] tcp://LAPTOP-93SSDTGR:61616 , arg[1] jdbc:sqlite:C:/Users/cgsos/Downloads/Bases de datos/datamart.db (ruta para guardar mi base de datos)
+VacationMain: arg[0] tcp://LAPTOP-93SSDTGR:61616 , arg[1] jdbc:sqlite:C:/Users/cgsos/Downloads/Databases/datamart.db (user should put the path to save de database )
 
 ## _Functionality_
 The project  collects data about weather and hotels, both in specific places, from two external APIs(Open Weather Map) and (Xotelo), this datas are transmited  to message broker(Active mq). The architecture consists of 4 main parts(modules): two parts(hotel-provider and prediction-provider) are to connect with data sources via API calls every six hours. Another module(datalake-builder) is to receive the data that is sent to the broker, from the two topics, and stored in a datalake, giving rise to a data history.is responsible for obtaining and sending data, while the second("event-store-builder") manages the reception and structured storage of the information. The last module (vacation-bussines-unit) is responsible for also receiving the data from the two topics, it is stored in a datamart, this means that every time it receives new data the database is updated, eliminating the data ancient. Finally, in this module the user interface (CLI) is created, a type of interface that allows communication between user and machine.
@@ -59,7 +59,7 @@ Last but not least. The project uses a lamba architecture, since it makes use of
 
 
 ### Vacation-bussines-unit
-![image](https://github.com/javierglezbenitez/Weather234/assets/145259489/e894ab7f-8bf2-42ee-8109-700fa267f5d4)
+![image](https://github.com/javierglezbenitez/Weather234/assets/145259489/14b1e04d-26ae-4420-a87e-6b622baf8731)
 
 
 
